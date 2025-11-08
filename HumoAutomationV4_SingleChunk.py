@@ -62,6 +62,62 @@ except ImportError:
 any_typ = "*"
 
 # =============================================================================
+# Helper Classes and Constants
+# =============================================================================
+
+class SafeDict(dict):
+    """
+    Dictionary that returns placeholder as-is for missing keys
+    instead of raising KeyError. Used for safe template formatting.
+    """
+    def __missing__(self, key):
+        return f"{{{key}}}"
+
+# Default LLM instruction template with placeholders
+DEFAULT_LLM_INSTRUCTIONS = """Generate a cinematic text-to-video prompt for a music video
+
+You are a prompt engineer, aiming to write user inputs into high-quality prompts for music video generation.
+
+Task requirements:
+1. Reasonably infer and add details to make the video more complete and appealing without altering the original intent
+2. Enhance the main features in user descriptions (appearance, expression, posture, etc.), visual style, spatial relationships, and shot scales
+3. Output the entire prompt in English
+4. Prompts should match the user's intent and accurately reflect the specified style
+5. Emphasize motion information and different camera movements
+6. Add natural actions of the target using simple and direct verbs
+7. The prompt should be around 80-100 words long
+8. PROMPT FORMULA: Subject + Scene + Motion + Camera Language + Atmosphere + Styling
+9. Do not split the prompt in sections
+10. DO NOT include component titles (Subject Description, Scene Description, etc.)
+11. Do not use "+" to join parts
+12. The generated prompt MUST be one single paragraph in natural English
+13. Directly write the prompt without extra responses (no markdown, no commentary):
+
+Prompt examples:
+- The camera starts with a full screen of antique wooden screens, and slowly pans to the left, revealing an ancient-style girl sitting behind the screen. The girl is wearing Shu embroidered Hanfu, her hair is tied up high, and she is conducting an online video conference.
+- A knight in shining armor stands by a medieval castle gate at dusk. He mounts a dragon and takes off into the sky as the camera pulls back. Cinematic lighting, glowing sunset clouds.
+- A lone astronaut wanders through an alien forest at twilight. The camera tracks from behind through misty trees. Soft bioluminescent glow from plants lights the scene, creating a mysterious, awe-inspiring atmosphere.
+
+VISUAL ELEMENTS (select one RANDOM entry from each category):
+- Character: {required_CHARACTER}
+- Environments: {optional_ENVIRONMENT}
+- Lighting: {optional_LIGHTING}
+- Camera Motion: {optional_CAMERA_MOTION}
+- Physical Interactions: {optional_PHYSICAL_INTERACTION}
+- Facial Expressions: {optional_FACIAL_EXPRESSION}
+- Shot Types: {optional_SHOTS}
+- Outfit: {optional_OUTFIT_RULES}
+
+
+
+INFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: 
+{internal_FULL_LYRICS}
+
+THE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:
+
+"""
+
+# =============================================================================
 # Node 1: VRGDG_FullSongAnalyzerV4
 # =============================================================================
 
@@ -139,6 +195,12 @@ class VRGDG_FullSongAnalyzerV4:
                 }),
             },
             "optional": {
+                # LLM instruction template with placeholders
+                "llm_instructions_template": ("STRING", {
+                    "multiline": True,
+                    "default": DEFAULT_LLM_INSTRUCTIONS,
+                    "tooltip": "Template for LLM instructions. Use placeholders: {required_CHARACTER}, {optional_ENVIRONMENT}, {optional_LIGHTING}, {optional_CAMERA_MOTION}, {optional_PHYSICAL_INTERACTION}, {optional_FACIAL_EXPRESSION}, {optional_SHOTS}, {optional_OUTFIT_RULES}",
+                }),
                 # Visual parameters (same as MusicVideoPromptCreator)
                 "environment": ("STRING", {
                     "multiline": True,
@@ -188,6 +250,7 @@ class VRGDG_FullSongAnalyzerV4:
         seed,
         placeholder_words,
         min_lyric_words,
+        llm_instructions_template="",
         environment="",
         lighting="",
         camera_motion="",
@@ -480,25 +543,30 @@ class VRGDG_FullSongAnalyzerV4:
             pipe_separated_lyrics = full_lyrics
         print(f"[VRGDG V4]   ✓ Lyrics prepared ({len(pipe_separated_lyrics)} chars)")
 
-        # Build LLM instructions (similar to VRGDG_MusicVideoPromptCreatorV3)
-        # This would normally be sent to an LLM
-        print("[VRGDG V4]   Building LLM instructions...")
-        llm_instructions = self._build_prompt_instruction(
-            character_description=character_description,
-            song_theme_style=song_theme_style,
-            pipe_separated_lyrics=pipe_separated_lyrics,
-            full_lyrics=full_lyrics,
-            total_prompts=total_chunks,
-            environment=environment,
-            lighting=lighting,
-            camera_motion=camera_motion,
-            physical_interaction=physical_interaction,
-            facial_expression=facial_expression,
-            shots=shots,
-            outfit_rules=outfit_rules,
-            seed=seed,
-        )
-        print(f"[VRGDG V4]   ✓ Instructions built ({len(llm_instructions)} chars)")
+        # Build LLM instructions using template with placeholder replacement
+        print("[VRGDG V4]   Building LLM instructions from template...")
+
+        # Build parameter mapping for placeholder replacement
+        llm_params = {
+            'required_CHARACTER': character_description,
+            'optional_ENVIRONMENT': environment,
+            'optional_LIGHTING': lighting,
+            'optional_CAMERA_MOTION': camera_motion,
+            'optional_PHYSICAL_INTERACTION': physical_interaction,
+            'optional_FACIAL_EXPRESSION': facial_expression,
+            'optional_SHOTS': shots,
+            'optional_OUTFIT_RULES': outfit_rules,
+            'internal_FULL_LYRICS': full_lyrics,
+        }
+
+        # Use default template if none provided or if empty
+        template = llm_instructions_template if llm_instructions_template and llm_instructions_template.strip() else DEFAULT_LLM_INSTRUCTIONS
+
+        # Replace placeholders in template
+        llm_instructions = self._replace_llm_placeholders(template, llm_params)
+
+        print(f"[VRGDG V4]   ✓ Instructions built from template ({len(llm_instructions)} chars)")
+        print(f"[VRGDG V4]   Template placeholders replaced: {list(llm_params.keys())}")
 
         # Generate WAN2.1 compatible prompts
         print("[VRGDG V4]   Generating WAN2.1 compatible prompts...")
@@ -614,168 +682,24 @@ class VRGDG_FullSongAnalyzerV4:
 
         return (full_prompts, total_chunks, full_lyrics, audio_meta, audio_hash, pipe_separated_lyrics, llm_instructions, frames_per_chunk)
 
-    def _build_prompt_instruction(
-        self,
-        character_description,
-        song_theme_style,
-        pipe_separated_lyrics,
-        full_lyrics,
-        total_prompts,
-        environment,
-        lighting,
-        camera_motion,
-        physical_interaction,
-        facial_expression,
-        shots,
-        outfit_rules,
-        seed,
-    ):
+    def _replace_llm_placeholders(self, template, params):
         """
-        Build instruction text for LLM prompt generation.
-        Similar to VRGDG_MusicVideoPromptCreatorV3.build_prompt_instructions()
+        Replace visual parameter placeholders in LLM instruction template.
+
+        Args:
+            template: String with placeholders like {required_CHARACTER}, {optional_ENVIRONMENT}
+            params: Dict mapping placeholder names to values
+
+        Returns:
+            Template with placeholders replaced
+
+        Example:
+            template = "Character: {required_CHARACTER}, Scene: {optional_ENVIRONMENT}"
+            params = {'required_CHARACTER': 'A man', 'optional_ENVIRONMENT': 'open field'}
+            result = "Character: A man, Scene: open field"
         """
-
-        instructions = f"""TASK: Generate a cinematic text-to-video prompt for a music video using the following rules:
-
-        
-PROMPT FORMULA:
-Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling
-
-PROMPT COMPONENTS:
-Subject Description: Details about the subject's appearance, described using adjectives or short phrases.
-Scene Description: Details about the environment where the subject is located, described using adjectives or short phrases.
-Motion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.
-Camera Language: Includes shot types, angles, lenses, and camera movements.
-Atmosphere: Words that describe the desired mood of the scene.
-Styling: Describes the visual style of the scene.
-
-
-VISUAL ELEMENTS  (select one random entry from each category):
-- Environments: {environment}
-- Lighting: {lighting}
-- Camera Motion: {camera_motion}
-- Physical Interactions: {physical_interaction}
-- Facial Expressions: {facial_expression}
-- Shot Types: {shots}
-- Outfit: {outfit_rules}
-
-REQUIREMENTS:
-- Each prompt: 40-50 words
-- Self-contained descriptions (no references to previous prompts)
-- Cinematic, visual language
-- Use the associated lyrics to make the scene prompt relevant to whats being said
-- video scene description only (no markdown, no commentary)
-
-SCENE PROMPT DETAILS:
-CHARACTER: 
-{character_description}
-
-THEME/STYLE: 
-{song_theme_style}
-
-FULL LYRICS TO GUIDE OVERALL THEME: 
-{full_lyrics}
-
-SPECIFIC LYRICS TO BE USED FOR SCENE COMPOSITION. MAKE THE SCENE RELEVANT TO THE LYRICS:
-
-"""
-        instructions2 = f"""TASK: Generate a cinematic text-to-video prompt for a music video using the following rules:
-        
-PROMPT FORMULA:
-Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling
-
-PROMPT COMPONENTS:
-Subject Description: Details about the subject's appearance, described using adjectives or short phrases.
-Scene Description: Details about the environment where the subject is located, described using adjectives or short phrases.
-Motion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.
-Camera Language: Includes shot types, angles, lenses, and camera movements.
-Atmosphere: Words that describe the desired mood of the scene.
-Styling: Describes the visual style of the scene.
-
-REQUIREMENTS:
-- Each prompt: 40-50 words
-- Cinematic, visual language
-- Use the associated lyrics to make the scene prompt relevant to whats being said
-- video scene description only (no markdown, no commentary)
-
-DATA TO BE USED TO GENERATE THE PROMPT:
-
-VISUAL ELEMENTS  (select one random entry from each category):
-- Environments: {environment}
-- Lighting: {lighting}
-- Camera Motion: {camera_motion}
-- Physical Interactions: {physical_interaction}
-- Facial Expressions: {facial_expression}
-- Shot Types: {shots}
-- Outfit: {outfit_rules}
-
-CHARACTER: 
-{character_description}
-
-INFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: 
-{full_lyrics}
-
-THE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:
-
-"""        
-
-#https://github.com/Wan-Video/Wan2.1/blob/main/wan/utils/prompt_extend.py
-        instructions3 = f"""
-
-        Generate a cinematic text-to-video prompt for a music video
-
-You are a prompt engineer, aiming to write user inputs into high-quality prompts for a music vide generation.
-Task requirements:
-1. Reasonably infer and add details to make the video more complete and appealing without altering the original intent;
-2. Enhance the main features in user descriptions (e.g., appearance, expression, quantity, race, posture, etc.), visual style, spatial relationships, and shot scales;
-3. Output the entire prompt in English, retaining original text in quotes and titles, and preserving key input information;
-4. Prompts should match the user's intent and accurately reflect the specified style. If the user does not specify a style, choose the most appropriate style for the video;
-5. Emphasize motion information and different camera movements present in the input description;
-6. Your output should have natural motion attributes. For the target category described, add natural actions of the target using simple and direct verbs;
-7. The prompt should be around 80-100 words long.
-8. PROMPT FORMULA: Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling
-9. PROMPT COMPONENTS:
-Subject Description: Details about the subject's appearance, described using adjectives or short phrases.
-Scene Description: Details about the environment where the subject is located, described using adjectives or short phrases.
-Motion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.
-Camera Language: Includes shot types, angles, lenses, and camera movements.
-Atmosphere: Words that describe the desired mood of the scene.
-Styling: Describes the visual style of the scene.
-10. Do not split the prompt in sections. 
-11. DO NOT include any of the the prompt components tittles (ubject Description,Scene Description,Motion Description,Camera Language,Atmosphere,Styling). 
-12. Do not join the different parts of the prompt with "+". 
-13. The generated prompt MUST be one single paragraph in natural English that describes the scene.
-
-Prompt examples:
-1. The camera starts with a full screen of antique wooden screens, and slowly pans to the left, revealing an ancient-style girl sitting behind the screen. The girl is wearing Shu embroidered Hanfu, her hair is tied up high, and she is conducting an online video conference.
-2. A knight in shining armor stands by a medieval castle gate at dusk. He mounts a dragon and takes off into the sky as the camera pulls back. Cinematic lighting, glowing sunset clouds
-3. Close-up shot of a new smartphone on a reflective black surface, camera slowly rotates around the phone. Studio lighting catches the metal edges and the screen's glow, against a dark blurred background
-4. A lone astronaut wanders through an alien forest at twilight. The camera tracks from behind through misty trees. Soft bioluminescent glow from plants lights the scene, creating a mysterious, awe-inspiring atmosphere. 4K cinematic detail
-
-I will now provide the data to be used to generate the prompt. Directly write the prompt without extra responses (no markdown, no commentary):
-
-VISUAL ELEMENTS  (select one RANDOM entry from each category):
-- Environments: {environment}
-- Lighting: {lighting}
-- Camera Motion: {camera_motion}
-- Physical Interactions: {physical_interaction}
-- Facial Expressions: {facial_expression}
-- Shot Types: {shots}
-- Outfit: {outfit_rules}
-
-CHARACTER: 
-{character_description}
-
-INFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: 
-{full_lyrics}
-
-THE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:
-
-"""
-
-
-
-        return instructions3.strip()
+        safe_params = SafeDict(params)
+        return template.format_map(safe_params)
 
     def _parse_visual_options(self, option_string):
         """
