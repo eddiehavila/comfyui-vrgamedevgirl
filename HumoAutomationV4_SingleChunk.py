@@ -500,27 +500,65 @@ class VRGDG_FullSongAnalyzerV4:
         )
         print(f"[VRGDG V4]   ✓ Instructions built ({len(llm_instructions)} chars)")
 
-        # For now, generate placeholder prompts
-        # In production, you would call your LLM here with llm_instructions
-        print("[VRGDG V4]   Generating prompts (placeholder mode)...")
-        print(f"[VRGDG V4]   Each prompt will use its corresponding chunk lyrics (with placeholders)")
+        # Generate WAN2.1 compatible prompts
+        print("[VRGDG V4]   Generating WAN2.1 compatible prompts...")
+        print(f"[VRGDG V4]   Using seed {seed} for deterministic randomness")
+
+        # Parse all visual options once before loop
+        import random
+        random_gen = random.Random(seed)  # Deterministic randomness
+
+        env_opts = self._parse_visual_options(environment)
+        light_opts = self._parse_visual_options(lighting)
+        camera_opts = self._parse_visual_options(camera_motion)
+        phys_opts = self._parse_visual_options(physical_interaction)
+        face_opts = self._parse_visual_options(facial_expression)
+        shot_opts = self._parse_visual_options(shots)
+        outfit_opts = self._parse_visual_options(outfit_rules)
+
+        print(f"[VRGDG V4]   Visual options parsed:")
+        print(f"[VRGDG V4]     - Environments: {len(env_opts)} options")
+        print(f"[VRGDG V4]     - Lighting: {len(light_opts)} options")
+        print(f"[VRGDG V4]     - Camera motions: {len(camera_opts)} options")
+        print(f"[VRGDG V4]     - Physical interactions: {len(phys_opts)} options")
+        print(f"[VRGDG V4]     - Facial expressions: {len(face_opts)} options")
+        print(f"[VRGDG V4]     - Shot types: {len(shot_opts)} options")
+        print(f"[VRGDG V4]     - Outfits: {len(outfit_opts)} options")
+
         generated_prompts = []
         for idx in range(total_chunks):
-            # Placeholder prompt (in production, this comes from LLM)
-            # Use processed_chunk_lyrics which includes placeholders for empty chunks
+            # Get chunk lyrics (with placeholders for empty chunks)
             chunk_lyrics = processed_chunk_lyrics[idx] if idx < len(processed_chunk_lyrics) else ''
-            prompt = f"Chunk {idx+1}: {character_description} in a cinematic scene. Lyrics: {chunk_lyrics}"
+
+            # Build WAN2.1 compatible prompt
+            prompt = self._build_wan21_prompt(
+                character_description=character_description,
+                song_theme_style=song_theme_style,
+                environment_options=env_opts,
+                lighting_options=light_opts,
+                camera_motion_options=camera_opts,
+                physical_interaction_options=phys_opts,
+                facial_expression_options=face_opts,
+                shots_options=shot_opts,
+                outfit_options=outfit_opts,
+                chunk_lyrics=chunk_lyrics,
+                random_gen=random_gen,
+            )
+
             generated_prompts.append(prompt)
             if (idx + 1) % 10 == 0 or idx == total_chunks - 1:
                 print(f"[VRGDG V4]     Generated {idx+1}/{total_chunks} prompts...")
 
-        print(f"[VRGDG V4]   ✅ Generated {len(generated_prompts)} prompts")
+        print(f"[VRGDG V4]   ✅ Generated {len(generated_prompts)} WAN2.1 prompts")
 
-        # Show preview of first 3 prompts to verify each has different lyrics
+        # Show preview of first 3 prompts to verify variety
         print(f"[VRGDG V4]   📝 Prompt preview (first 3):")
         for i in range(min(3, len(generated_prompts))):
-            preview = generated_prompts[i][:100] if generated_prompts[i] else "[empty]"
+            preview = generated_prompts[i][:120] if generated_prompts[i] else "[empty]"
             print(f"[VRGDG V4]      Prompt {i}: \"{preview}...\"")
+            # Show word count
+            word_count = len(generated_prompts[i].split())
+            print(f"[VRGDG V4]               ({word_count} words)")
 
         # Package everything into output dict
         full_prompts = {
@@ -597,7 +635,20 @@ class VRGDG_FullSongAnalyzerV4:
         Similar to VRGDG_MusicVideoPromptCreatorV3.build_prompt_instructions()
         """
 
-        instructions = f"""TASK: Generate a cinematic text-to-video prompt for a music video
+        instructions = f"""TASK: Generate a cinematic text-to-video prompt for a music video using the following rules:
+
+        
+PROMPT FORMULA:
+Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling
+
+PROMPT COMPONENTS:
+Subject Description: Details about the subject's appearance, described using adjectives or short phrases.
+Scene Description: Details about the environment where the subject is located, described using adjectives or short phrases.
+Motion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.
+Camera Language: Includes shot types, angles, lenses, and camera movements.
+Atmosphere: Words that describe the desired mood of the scene.
+Styling: Describes the visual style of the scene.
+
 
 VISUAL ELEMENTS  (select one random entry from each category):
 - Environments: {environment}
@@ -628,8 +679,235 @@ FULL LYRICS TO GUIDE OVERALL THEME:
 SPECIFIC LYRICS TO BE USED FOR SCENE COMPOSITION. MAKE THE SCENE RELEVANT TO THE LYRICS:
 
 """
+        instructions2 = f"""TASK: Generate a cinematic text-to-video prompt for a music video using the following rules:
+        
+PROMPT FORMULA:
+Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling
 
-        return instructions.strip()
+PROMPT COMPONENTS:
+Subject Description: Details about the subject's appearance, described using adjectives or short phrases.
+Scene Description: Details about the environment where the subject is located, described using adjectives or short phrases.
+Motion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.
+Camera Language: Includes shot types, angles, lenses, and camera movements.
+Atmosphere: Words that describe the desired mood of the scene.
+Styling: Describes the visual style of the scene.
+
+REQUIREMENTS:
+- Each prompt: 40-50 words
+- Cinematic, visual language
+- Use the associated lyrics to make the scene prompt relevant to whats being said
+- video scene description only (no markdown, no commentary)
+
+DATA TO BE USED TO GENERATE THE PROMPT:
+
+VISUAL ELEMENTS  (select one random entry from each category):
+- Environments: {environment}
+- Lighting: {lighting}
+- Camera Motion: {camera_motion}
+- Physical Interactions: {physical_interaction}
+- Facial Expressions: {facial_expression}
+- Shot Types: {shots}
+- Outfit: {outfit_rules}
+
+CHARACTER: 
+{character_description}
+
+INFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: 
+{full_lyrics}
+
+THE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:
+
+"""        
+
+#https://github.com/Wan-Video/Wan2.1/blob/main/wan/utils/prompt_extend.py
+        instructions3 = f"""
+
+        Generate a cinematic text-to-video prompt for a music video
+
+You are a prompt engineer, aiming to write user inputs into high-quality prompts for a music vide generation.
+Task requirements:
+1. Reasonably infer and add details to make the video more complete and appealing without altering the original intent;
+2. Enhance the main features in user descriptions (e.g., appearance, expression, quantity, race, posture, etc.), visual style, spatial relationships, and shot scales;
+3. Output the entire prompt in English, retaining original text in quotes and titles, and preserving key input information;
+4. Prompts should match the user's intent and accurately reflect the specified style. If the user does not specify a style, choose the most appropriate style for the video;
+5. Emphasize motion information and different camera movements present in the input description;
+6. Your output should have natural motion attributes. For the target category described, add natural actions of the target using simple and direct verbs;
+7. The prompt should be around 80-100 words long.
+8. PROMPT FORMULA: Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling
+9. PROMPT COMPONENTS:
+Subject Description: Details about the subject's appearance, described using adjectives or short phrases.
+Scene Description: Details about the environment where the subject is located, described using adjectives or short phrases.
+Motion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.
+Camera Language: Includes shot types, angles, lenses, and camera movements.
+Atmosphere: Words that describe the desired mood of the scene.
+Styling: Describes the visual style of the scene.
+10. Do not split the prompt in sections. 
+11. DO NOT include any of the the prompt components tittles (ubject Description,Scene Description,Motion Description,Camera Language,Atmosphere,Styling). 
+12. Do not join the different parts of the prompt with "+". 
+13. The generated prompt MUST be one single paragraph in natural English that describes the scene.
+
+Prompt examples:
+1. The camera starts with a full screen of antique wooden screens, and slowly pans to the left, revealing an ancient-style girl sitting behind the screen. The girl is wearing Shu embroidered Hanfu, her hair is tied up high, and she is conducting an online video conference.
+2. A knight in shining armor stands by a medieval castle gate at dusk. He mounts a dragon and takes off into the sky as the camera pulls back. Cinematic lighting, glowing sunset clouds
+3. Close-up shot of a new smartphone on a reflective black surface, camera slowly rotates around the phone. Studio lighting catches the metal edges and the screen's glow, against a dark blurred background
+4. A lone astronaut wanders through an alien forest at twilight. The camera tracks from behind through misty trees. Soft bioluminescent glow from plants lights the scene, creating a mysterious, awe-inspiring atmosphere. 4K cinematic detail
+
+I will now provide the data to be used to generate the prompt. Directly write the prompt without extra responses (no markdown, no commentary):
+
+VISUAL ELEMENTS  (select one RANDOM entry from each category):
+- Environments: {environment}
+- Lighting: {lighting}
+- Camera Motion: {camera_motion}
+- Physical Interactions: {physical_interaction}
+- Facial Expressions: {facial_expression}
+- Shot Types: {shots}
+- Outfit: {outfit_rules}
+
+CHARACTER: 
+{character_description}
+
+INFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: 
+{full_lyrics}
+
+THE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:
+
+"""
+
+
+
+        return instructions3.strip()
+
+    def _parse_visual_options(self, option_string):
+        """
+        Parse comma-separated options into a list.
+        Returns empty list if string is empty.
+
+        Example: "zoom in, zoom out, tilt down" -> ["zoom in", "zoom out", "tilt down"]
+        """
+        if not option_string or not option_string.strip():
+            return []
+        return [opt.strip() for opt in option_string.split(',') if opt.strip()]
+
+    def _build_wan21_prompt(
+        self,
+        character_description,
+        song_theme_style,
+        environment_options,
+        lighting_options,
+        camera_motion_options,
+        physical_interaction_options,
+        facial_expression_options,
+        shots_options,
+        outfit_options,
+        chunk_lyrics,
+        random_gen,
+    ):
+        """
+        Build WAN2.1 compatible prompt using the formula:
+        Subject + Scene + Motion + Camera + Atmosphere + Styling
+
+        Each chunk gets random selections from visual parameter options.
+        """
+
+        parts = []
+
+        # 1. SUBJECT (Subject Description)
+        # Start with character base
+        subject = character_description
+
+        # Add outfit if available
+        if outfit_options:
+            outfit = random_gen.choice(outfit_options)
+            subject = f"{subject} in {outfit}"
+
+        parts.append(subject)
+
+        # 2. SCENE (Scene Description)
+        scene_parts = []
+
+        # Add environment
+        if environment_options:
+            env = random_gen.choice(environment_options)
+            scene_parts.append(f"in {env}" if not env.startswith(("in ", "at ", "on ")) else env)
+
+        if scene_parts:
+            parts.append(" ".join(scene_parts))
+
+        # 3. MOTION (Motion Description)
+        if physical_interaction_options:
+            motion = random_gen.choice(physical_interaction_options)
+            parts.append(motion)
+
+        # 4. CAMERA LANGUAGE
+        camera_parts = []
+
+        # Add shot type
+        if shots_options:
+            shot = random_gen.choice(shots_options)
+            camera_parts.append(shot)
+
+        # Add camera motion
+        if camera_motion_options:
+            cam_motion = random_gen.choice(camera_motion_options)
+            camera_parts.append(cam_motion)
+
+        if camera_parts:
+            camera_text = ", ".join(camera_parts)
+            parts.append(f"The camera {camera_text}")
+
+        # 5. ATMOSPHERE (Emotion/Expression)
+        if facial_expression_options:
+            expression = random_gen.choice(facial_expression_options)
+            parts.append(f"capturing {expression}")
+        elif lighting_options:
+            # Use lighting as atmosphere if no expression
+            light = random_gen.choice(lighting_options)
+            parts.append(f"with {light}")
+
+        # 6. STYLING
+        # Parse song_theme_style in case it has multiple options
+        style_options = self._parse_visual_options(song_theme_style)
+        if style_options:
+            style = random_gen.choice(style_options)
+            parts.append(f"The atmosphere is {style}")
+        elif song_theme_style:
+            # Use as-is if not comma-separated
+            parts.append(f"The atmosphere is {song_theme_style}")
+
+        # Join all parts into a natural sentence
+        # Use proper punctuation
+        if len(parts) == 0:
+            return f"{character_description} in a cinematic scene"
+
+        # Build the prompt
+        prompt = parts[0]  # Subject
+
+        if len(parts) > 1:
+            # Add scene and motion with commas
+            middle_parts = []
+            for i, part in enumerate(parts[1:], 1):
+                if part.startswith("The camera") or part.startswith("capturing") or part.startswith("with ") or part.startswith("The atmosphere"):
+                    # These start new sentences
+                    break
+                else:
+                    middle_parts.append(part)
+
+            if middle_parts:
+                prompt += " " + ", ".join(middle_parts)
+
+            # Add camera and atmosphere parts
+            remaining_start = 1 + len(middle_parts)
+            for part in parts[remaining_start:]:
+                if part.startswith("The camera") or part.startswith("The atmosphere"):
+                    prompt += ". " + part
+                else:
+                    prompt += ", " + part
+
+        # Ensure it ends with a period
+        if not prompt.endswith('.'):
+            prompt += '.'
+
+        return prompt
 
 
 # =============================================================================
