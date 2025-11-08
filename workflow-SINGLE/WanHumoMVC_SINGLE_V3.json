@@ -213,7 +213,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 123,
+      "order": 122,
       "mode": 0,
       "inputs": [
         {
@@ -501,7 +501,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 112,
+      "order": 121,
       "mode": 0,
       "inputs": [
         {
@@ -790,7 +790,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 125,
+      "order": 131,
       "mode": 0,
       "inputs": [
         {
@@ -836,7 +836,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 124,
+      "order": 130,
       "mode": 0,
       "inputs": [
         {
@@ -917,7 +917,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 93,
+      "order": 106,
       "mode": 0,
       "inputs": [
         {
@@ -994,7 +994,8 @@
         "center",
         16,
         "cpu",
-        1
+        1,
+        "<tr><td>Output: </td><td><b>1</b> x <b>720</b> x <b>480 | 3.96MB</b></td></tr>"
       ],
       "color": "#432",
       "bgcolor": "#653",
@@ -1347,7 +1348,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 133,
+      "order": 132,
       "mode": 0,
       "inputs": [
         {
@@ -1849,7 +1850,7 @@
         150
       ],
       "flags": {},
-      "order": 111,
+      "order": 110,
       "mode": 0,
       "inputs": [
         {
@@ -2346,52 +2347,6 @@
       "shape": 1
     },
     {
-      "id": 1942,
-      "type": "LoadImage",
-      "pos": [
-        -3140,
-        -1080
-      ],
-      "size": [
-        214.080078125,
-        342.9638977050781
-      ],
-      "flags": {},
-      "order": 34,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            2739
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": []
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.56",
-        "Node name for S&R": "LoadImage",
-        "ue_properties": {
-          "version": "7.3",
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": [
-        "WhatsApp Image 2025-10-14 at 13.22.16_3cf168f0.jpg",
-        "image"
-      ],
-      "color": "#323",
-      "bgcolor": "#535"
-    },
-    {
       "id": 1289,
       "type": "ShowText|pysssss",
       "pos": [
@@ -2403,7 +2358,7 @@
         230
       ],
       "flags": {},
-      "order": 159,
+      "order": 158,
       "mode": 0,
       "inputs": [
         {
@@ -2431,7 +2386,7 @@
         }
       },
       "widgets_values": [
-        "A man in a black shirt stands in an open field at dusk, surrounded by swaying tall grass that catches the warm amber glow of the setting sun. The camera zooms in on his face, capturing his intense raw emotion as he closes his eyes, letting the gentle breeze fill his heart with song. He begins to sway slightly, lost in the moment, as the camera rotates around him, revealing the vastness of the field and the colorful sky above. The atmosphere is romantic and dreamy, evoking a sense of longing and connection, as if he is singing to the stars."
+        "A man in a sleek black suit and a stylish hat stands in a dimly lit bedroom, the warm amber glow of a bedside lamp casting soft shadows across the room. He gazes intensely, filled with raw emotion, as he leans against the wall, lost in thought. The camera slowly zooms in on his face, capturing the depth of his feelings, then gently pulls back to reveal the intimate space around him. The atmosphere is romantic and nostalgic, evoking a sense of longing and connection, as if he is yearning for a love that transcends the stars."
       ],
       "color": "#432",
       "bgcolor": "#653",
@@ -2449,7 +2404,7 @@
         234
       ],
       "flags": {},
-      "order": 158,
+      "order": 157,
       "mode": 0,
       "inputs": [
         {
@@ -2516,7 +2471,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 35,
+      "order": 34,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2524,8 +2479,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            1929,
-            5192
+            1929
           ]
         }
       ],
@@ -2558,7 +2512,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 161,
+      "order": 160,
       "mode": 0,
       "inputs": [
         {
@@ -2602,7 +2556,7 @@
         133.87158613483803
       ],
       "flags": {},
-      "order": 36,
+      "order": 35,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -2633,7 +2587,7 @@
         136.9870874635617
       ],
       "flags": {},
-      "order": 37,
+      "order": 36,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -2666,7 +2620,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 95,
+      "order": 93,
       "mode": 0,
       "inputs": [
         {
@@ -2710,7 +2664,7 @@
         58
       ],
       "flags": {},
-      "order": 38,
+      "order": 37,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2752,7 +2706,7 @@
         218.58299255371094
       ],
       "flags": {},
-      "order": 39,
+      "order": 38,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -2785,7 +2739,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 40,
+      "order": 39,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2827,7 +2781,7 @@
         322
       ],
       "flags": {},
-      "order": 160,
+      "order": 159,
       "mode": 0,
       "inputs": [
         {
@@ -2998,7 +2952,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 41,
+      "order": 40,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3039,7 +2993,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 97,
+      "order": 95,
       "mode": 0,
       "inputs": [
         {
@@ -3091,7 +3045,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 96,
+      "order": 94,
       "mode": 0,
       "inputs": [
         {
@@ -3137,7 +3091,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 42,
+      "order": 41,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3178,7 +3132,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 43,
+      "order": 42,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3219,7 +3173,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 100,
+      "order": 107,
       "mode": 0,
       "inputs": [
         {
@@ -3263,7 +3217,7 @@
         102.63785532073143
       ],
       "flags": {},
-      "order": 44,
+      "order": 43,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -3294,7 +3248,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 99,
+      "order": 109,
       "mode": 0,
       "inputs": [
         {
@@ -3339,7 +3293,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 98,
+      "order": 108,
       "mode": 0,
       "inputs": [
         {
@@ -3369,126 +3323,6 @@
       ]
     },
     {
-      "id": 2495,
-      "type": "easy boolean",
-      "pos": [
-        -3359.4652521966955,
-        -2465.846809720295
-      ],
-      "size": [
-        210,
-        58
-      ],
-      "flags": {},
-      "order": 45,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "boolean",
-          "type": "BOOLEAN",
-          "links": [
-            5188
-          ]
-        }
-      ],
-      "title": "AutoIndex",
-      "properties": {
-        "cnr_id": "comfyui-easy-use",
-        "ver": "1.3.4",
-        "Node name for S&R": "easy boolean",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.3"
-        }
-      },
-      "widgets_values": [
-        false
-      ]
-    },
-    {
-      "id": 2497,
-      "type": "JWInteger",
-      "pos": [
-        -2967.9346041342733,
-        -2459.661899646869
-      ],
-      "size": [
-        210,
-        58
-      ],
-      "flags": {},
-      "order": 46,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            5189
-          ]
-        }
-      ],
-      "title": "ManualIndex",
-      "properties": {
-        "cnr_id": "comfyui-various",
-        "ver": "5bd85aaf7616878471469c4ec7e11bbd0cef3bf2",
-        "Node name for S&R": "JWInteger",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.3"
-        }
-      },
-      "widgets_values": [
-        10
-      ]
-    },
-    {
-      "id": 1899,
-      "type": "PrimitiveStringMultiline",
-      "pos": [
-        -2760,
-        -45
-      ],
-      "size": [
-        312.8999938964844,
-        113.88980865478516
-      ],
-      "flags": {},
-      "order": 47,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            4106
-          ]
-        }
-      ],
-      "title": "Empty file path to where your video's will go",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.56",
-        "Node name for S&R": "PrimitiveStringMultiline",
-        "ue_properties": {
-          "version": "7.3",
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": [
-        "c6"
-      ],
-      "color": "#332922",
-      "bgcolor": "#593930",
-      "shape": 1
-    },
-    {
       "id": 2176,
       "type": "SetNode",
       "pos": [
@@ -3502,7 +3336,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 113,
+      "order": 111,
       "mode": 0,
       "inputs": [
         {
@@ -3546,7 +3380,7 @@
         88
       ],
       "flags": {},
-      "order": 105,
+      "order": 100,
       "mode": 0,
       "inputs": [
         {
@@ -3584,7 +3418,7 @@
         88
       ],
       "flags": {},
-      "order": 114,
+      "order": 112,
       "mode": 0,
       "inputs": [
         {
@@ -3622,7 +3456,7 @@
         110.43856619539292
       ],
       "flags": {},
-      "order": 48,
+      "order": 44,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -3655,7 +3489,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 49,
+      "order": 45,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3698,7 +3532,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 101,
+      "order": 96,
       "mode": 0,
       "inputs": [
         {
@@ -3741,7 +3575,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 102,
+      "order": 97,
       "mode": 0,
       "inputs": [
         {
@@ -3800,7 +3634,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 50,
+      "order": 46,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3836,7 +3670,7 @@
         136
       ],
       "flags": {},
-      "order": 51,
+      "order": 47,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3882,7 +3716,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 103,
+      "order": 98,
       "mode": 0,
       "inputs": [
         {
@@ -3925,7 +3759,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 52,
+      "order": 48,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3965,7 +3799,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 53,
+      "order": 49,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4003,7 +3837,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 54,
+      "order": 50,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4039,7 +3873,7 @@
         166
       ],
       "flags": {},
-      "order": 151,
+      "order": 150,
       "mode": 0,
       "inputs": [
         {
@@ -4086,48 +3920,6 @@
       ]
     },
     {
-      "id": 2450,
-      "type": "OllamaConnectivityV2",
-      "pos": [
-        1616.936266415594,
-        -801.1398295033036
-      ],
-      "size": [
-        270,
-        154
-      ],
-      "flags": {},
-      "order": 55,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "connection",
-          "type": "OLLAMA_CONNECTIVITY",
-          "links": [
-            5059
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui-ollama",
-        "ver": "2.1.0",
-        "Node name for S&R": "OllamaConnectivityV2",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.3"
-        }
-      },
-      "widgets_values": [
-        "http://host.docker.internal:11434",
-        "gpt-4o-mini",
-        5,
-        "minutes",
-        null
-      ]
-    },
-    {
       "id": 2449,
       "type": "OllamaGenerateV2",
       "pos": [
@@ -4139,7 +3931,7 @@
         294
       ],
       "flags": {},
-      "order": 154,
+      "order": 153,
       "mode": 0,
       "inputs": [
         {
@@ -4235,7 +4027,7 @@
         223.807966240803
       ],
       "flags": {},
-      "order": 150,
+      "order": 149,
       "mode": 2,
       "inputs": [
         {
@@ -4265,42 +4057,8 @@
         }
       },
       "widgets_values": [
-        "Chunk 11: A man in a cinematic scene. Lyrics: Fill my heart with song and let me sing."
+        "A man in a black shirt in dimly lit bedroom, walking through tall grass. The camera Close up, zoom out, capturing Intense raw emotion. The atmosphere is cinematic realism."
       ]
-    },
-    {
-      "id": 2501,
-      "type": "PreviewImage",
-      "pos": [
-        3357.180633539296,
-        -945.6474460129066
-      ],
-      "size": [
-        221.53512322998995,
-        258
-      ],
-      "flags": {},
-      "order": 94,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 5192
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.66",
-        "Node name for S&R": "PreviewImage",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.3"
-        }
-      },
-      "widgets_values": []
     },
     {
       "id": 2493,
@@ -4316,7 +4074,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 56,
+      "order": 51,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4356,7 +4114,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 57,
+      "order": 52,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4383,116 +4141,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 1329,
-      "type": "PreviewAudio",
-      "pos": [
-        3639.1500583284587,
-        -107.6374641253697
-      ],
-      "size": [
-        270,
-        88
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 106,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "audio",
-          "type": "AUDIO",
-          "link": 5181
-        }
-      ],
-      "outputs": [],
-      "title": "Preview Audio for group 1",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.56",
-        "Node name for S&R": "PreviewAudio",
-        "ue_properties": {
-          "version": "7.3",
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": [],
-      "color": "#432",
-      "bgcolor": "#653",
-      "shape": 1
-    },
-    {
-      "id": 2543,
-      "type": "Any Switch (rgthree)",
-      "pos": [
-        3263.2052149865403,
-        -1115.3930729062229
-      ],
-      "size": [
-        250.08046875000002,
-        106
-      ],
-      "flags": {},
-      "order": 157,
-      "mode": 0,
-      "inputs": [
-        {
-          "dir": 3,
-          "name": "any_01",
-          "type": "STRING",
-          "link": 5269
-        },
-        {
-          "dir": 3,
-          "name": "any_02",
-          "type": "STRING",
-          "link": 5265
-        },
-        {
-          "dir": 3,
-          "name": "any_03",
-          "type": "STRING",
-          "link": null
-        },
-        {
-          "dir": 3,
-          "name": "any_04",
-          "type": "STRING",
-          "link": null
-        },
-        {
-          "dir": 3,
-          "name": "any_05",
-          "type": "STRING",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "dir": 4,
-          "label": "STRING",
-          "name": "*",
-          "shape": 3,
-          "type": "STRING",
-          "links": [
-            5266,
-            5267
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "1.0.2510052058",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.3"
-        }
-      },
-      "widgets_values": []
-    },
-    {
       "id": 2506,
       "type": "SetNode",
       "pos": [
@@ -4506,7 +4154,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 122,
+      "order": 120,
       "mode": 0,
       "inputs": [
         {
@@ -4551,7 +4199,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 117,
+      "order": 115,
       "mode": 0,
       "inputs": [
         {
@@ -4597,7 +4245,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 121,
+      "order": 119,
       "mode": 0,
       "inputs": [
         {
@@ -4643,7 +4291,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 118,
+      "order": 116,
       "mode": 0,
       "inputs": [
         {
@@ -4689,7 +4337,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 119,
+      "order": 117,
       "mode": 0,
       "inputs": [
         {
@@ -4734,7 +4382,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 120,
+      "order": 118,
       "mode": 0,
       "inputs": [
         {
@@ -4763,7 +4411,7 @@
         }
       },
       "widgets_values": [
-        "Generate a cinematic text-to-video prompt for a music video\n\nYou are a prompt engineer, aiming to write user inputs into high-quality prompts for a music vide generation.\nTask requirements:\n1. Reasonably infer and add details to make the video more complete and appealing without altering the original intent;\n2. Enhance the main features in user descriptions (e.g., appearance, expression, quantity, race, posture, etc.), visual style, spatial relationships, and shot scales;\n3. Output the entire prompt in English, retaining original text in quotes and titles, and preserving key input information;\n4. Prompts should match the user's intent and accurately reflect the specified style. If the user does not specify a style, choose the most appropriate style for the video;\n5. Emphasize motion information and different camera movements present in the input description;\n6. Your output should have natural motion attributes. For the target category described, add natural actions of the target using simple and direct verbs;\n7. The prompt should be around 80-100 words long.\n8. PROMPT FORMULA: Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling\n9. PROMPT COMPONENTS:\nSubject Description: Details about the subject's appearance, described using adjectives or short phrases.\nScene Description: Details about the environment where the subject is located, described using adjectives or short phrases.\nMotion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.\nCamera Language: Includes shot types, angles, lenses, and camera movements.\nAtmosphere: Words that describe the desired mood of the scene.\nStyling: Describes the visual style of the scene.\n10. Do not split the prompt in sections. \n11. DO NOT include any of the the prompt components tittles (ubject Description,Scene Description,Motion Description,Camera Language,Atmosphere,Styling). \n12. Do not join the different parts of the prompt with \"+\". \n13. The generated prompt MUST be one single paragraph in natural English that describes the scene.\n\nPrompt examples:\n1. The camera starts with a full screen of antique wooden screens, and slowly pans to the left, revealing an ancient-style girl sitting behind the screen. The girl is wearing Shu embroidered Hanfu, her hair is tied up high, and she is conducting an online video conference.\n2. A knight in shining armor stands by a medieval castle gate at dusk. He mounts a dragon and takes off into the sky as the camera pulls back. Cinematic lighting, glowing sunset clouds\n3. Close-up shot of a new smartphone on a reflective black surface, camera slowly rotates around the phone. Studio lighting catches the metal edges and the screen's glow, against a dark blurred background\n4. A lone astronaut wanders through an alien forest at twilight. The camera tracks from behind through misty trees. Soft bioluminescent glow from plants lights the scene, creating a mysterious, awe-inspiring atmosphere. 4K cinematic detail\n\nI will now provide the data to be used to generate the prompt. Directly write the prompt without extra responses (no markdown, no commentary):\n\nVISUAL ELEMENTS  (select one RANDOM entry from each category):\n- Environments: open field at dusk, dimly lit bedroom, empty city street at night, casino poker tables\n- Lighting: warm amber glow, cool window light, neon reflections\n- Camera Motion: zoom in, zoom out, tilt down, rotate around, pan, track\n- Physical Interactions: walking through tall grass, lying on bed, leaning against wall\n- Facial Expressions: Intense raw emotion\n- Shot Types: Close up, medium, wide angle, over the shoulder, point of view\n- Outfit: a black shirt\n\nCHARACTER: \nA man\n\nINFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: \nFly me to the moon, let me play among the stars, let me see what spring is like on Jupiter and Mars. In other words, hold my hand.  In other words, baby kiss me Fill my heart with song and let me sing forevermore You are all I long for, all I worship and adore  be true In other words I love you  Fill my heart with song Let me sing forevermore You are all I long for All I worship  door In other words Please be true In other words In other words I love you\n\nTHE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:"
+        "Generate a cinematic text-to-video prompt for a music video\n\nYou are a prompt engineer, aiming to write user inputs into high-quality prompts for a music vide generation.\nTask requirements:\n1. Reasonably infer and add details to make the video more complete and appealing without altering the original intent;\n2. Enhance the main features in user descriptions (e.g., appearance, expression, quantity, race, posture, etc.), visual style, spatial relationships, and shot scales;\n3. Output the entire prompt in English, retaining original text in quotes and titles, and preserving key input information;\n4. Prompts should match the user's intent and accurately reflect the specified style. If the user does not specify a style, choose the most appropriate style for the video;\n5. Emphasize motion information and different camera movements present in the input description;\n6. Your output should have natural motion attributes. For the target category described, add natural actions of the target using simple and direct verbs;\n7. The prompt should be around 80-100 words long.\n8. PROMPT FORMULA: Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling\n9. PROMPT COMPONENTS:\nSubject Description: Details about the subject's appearance, described using adjectives or short phrases.\nScene Description: Details about the environment where the subject is located, described using adjectives or short phrases.\nMotion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.\nCamera Language: Includes shot types, angles, lenses, and camera movements.\nAtmosphere: Words that describe the desired mood of the scene.\nStyling: Describes the visual style of the scene.\n10. Do not split the prompt in sections. \n11. DO NOT include any of the the prompt components tittles (ubject Description,Scene Description,Motion Description,Camera Language,Atmosphere,Styling). \n12. Do not join the different parts of the prompt with \"+\". \n13. The generated prompt MUST be one single paragraph in natural English that describes the scene.\n\nPrompt examples:\n1. The camera starts with a full screen of antique wooden screens, and slowly pans to the left, revealing an ancient-style girl sitting behind the screen. The girl is wearing Shu embroidered Hanfu, her hair is tied up high, and she is conducting an online video conference.\n2. A knight in shining armor stands by a medieval castle gate at dusk. He mounts a dragon and takes off into the sky as the camera pulls back. Cinematic lighting, glowing sunset clouds\n3. Close-up shot of a new smartphone on a reflective black surface, camera slowly rotates around the phone. Studio lighting catches the metal edges and the screen's glow, against a dark blurred background\n4. A lone astronaut wanders through an alien forest at twilight. The camera tracks from behind through misty trees. Soft bioluminescent glow from plants lights the scene, creating a mysterious, awe-inspiring atmosphere. 4K cinematic detail\n\nI will now provide the data to be used to generate the prompt. Directly write the prompt without extra responses (no markdown, no commentary):\n\nVISUAL ELEMENTS  (select one RANDOM entry from each category):\n- Environments: dimly lit bedroom, empty city street at night, casino poker tables\n- Lighting: warm amber glow, cool window light, neon reflections\n- Camera Motion: zoom in, zoom out, tilt down, rotate around, pan, track\n- Physical Interactions: walking on the street, lying on bed, leaning against wall\n- Facial Expressions: Intense raw emotion\n- Shot Types: Close up, medium, wide angle, over the shoulder, point of view\n- Outfit: a black suit, a grey suit\n\nCHARACTER: \nA man with a hat\n\nINFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: \nFly me to the moon, let me play among the stars, let me see what spring is like on Jupiter and Mars. In other words, hold my hand.  In other words, baby kiss me Fill my heart with song and let me sing forevermore You are all I long for, all I worship and adore  be true In other words I love you  Fill my heart with song Let me sing forevermore You are all I long for All I worship  door In other words Please be true In other words In other words I love you\n\nTHE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:"
       ]
     },
     {
@@ -4778,7 +4426,7 @@
         186
       ],
       "flags": {},
-      "order": 116,
+      "order": 114,
       "mode": 0,
       "inputs": [
         {
@@ -4883,7 +4531,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 58,
+      "order": 53,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4921,7 +4569,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 59,
+      "order": 54,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4959,7 +4607,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 60,
+      "order": 55,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4999,7 +4647,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 128,
+      "order": 125,
       "mode": 0,
       "inputs": [
         {
@@ -5028,7 +4676,7 @@
         }
       },
       "widgets_values": [
-        "10"
+        "32"
       ]
     },
     {
@@ -5045,7 +4693,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 131,
+      "order": 128,
       "mode": 0,
       "inputs": [
         {
@@ -5090,7 +4738,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 61,
+      "order": 56,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5126,7 +4774,7 @@
         88
       ],
       "flags": {},
-      "order": 62,
+      "order": 57,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -5155,7 +4803,7 @@
         88
       ],
       "flags": {},
-      "order": 63,
+      "order": 58,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -5186,7 +4834,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 64,
+      "order": 59,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5222,7 +4870,7 @@
         78
       ],
       "flags": {},
-      "order": 126,
+      "order": 123,
       "mode": 0,
       "inputs": [
         {
@@ -5287,7 +4935,7 @@
         78
       ],
       "flags": {},
-      "order": 130,
+      "order": 127,
       "mode": 0,
       "inputs": [
         {
@@ -5354,7 +5002,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 136,
+      "order": 135,
       "mode": 0,
       "inputs": [
         {
@@ -5383,7 +5031,7 @@
         }
       },
       "widgets_values": [
-        "{\"index\": 10, \"start_sample\": 1764000, \"end_sample\": 1940400, \"actual_samples\": 176400, \"padded\": false, \"duration\": 4.0, \"actual_duration\": 4.0, \"samples_per_chunk\": 176400, \"frames_per_chunk\": 100, \"fps\": 25, \"sample_rate\": 44100}"
+        "{\"index\": 32, \"start_sample\": 5644800, \"end_sample\": 5821200, \"actual_samples\": 176400, \"padded\": false, \"duration\": 4.0, \"actual_duration\": 4.0, \"samples_per_chunk\": 176400, \"frames_per_chunk\": 100, \"fps\": 25, \"sample_rate\": 44100}"
       ]
     },
     {
@@ -5400,7 +5048,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 134,
+      "order": 133,
       "mode": 0,
       "inputs": [
         {
@@ -5445,7 +5093,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 135,
+      "order": 134,
       "mode": 0,
       "inputs": [
         {
@@ -5484,7 +5132,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 143,
+      "order": 142,
       "mode": 0,
       "inputs": [
         {
@@ -5527,7 +5175,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 145,
+      "order": 144,
       "mode": 0,
       "inputs": [
         {
@@ -5556,7 +5204,7 @@
         }
       },
       "widgets_values": [
-        "{\"index\": 10, \"start_sample\": 1764000, \"end_sample\": 1940400, \"actual_samples\": 176400, \"padded\": false, \"duration\": 4.0, \"actual_duration\": 4.0, \"samples_per_chunk\": 176400, \"frames_per_chunk\": 100, \"fps\": 25, \"sample_rate\": 44100}"
+        "{\"index\": 32, \"start_sample\": 5644800, \"end_sample\": 5821200, \"actual_samples\": 176400, \"padded\": false, \"duration\": 4.0, \"actual_duration\": 4.0, \"samples_per_chunk\": 176400, \"frames_per_chunk\": 100, \"fps\": 25, \"sample_rate\": 44100}"
       ]
     },
     {
@@ -5573,7 +5221,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 144,
+      "order": 143,
       "mode": 0,
       "inputs": [
         {
@@ -5613,7 +5261,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 65,
+      "order": 60,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5653,7 +5301,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 66,
+      "order": 61,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5691,7 +5339,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 67,
+      "order": 62,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5729,7 +5377,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 68,
+      "order": 63,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5769,7 +5417,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 69,
+      "order": 64,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5807,7 +5455,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 146,
+      "order": 145,
       "mode": 0,
       "inputs": [
         {
@@ -5852,7 +5500,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 148,
+      "order": 147,
       "mode": 0,
       "inputs": [
         {
@@ -5897,7 +5545,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 70,
+      "order": 65,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5936,7 +5584,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 71,
+      "order": 66,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5976,7 +5624,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 153,
+      "order": 152,
       "mode": 0,
       "inputs": [
         {
@@ -6020,7 +5668,7 @@
         118
       ],
       "flags": {},
-      "order": 129,
+      "order": 126,
       "mode": 0,
       "inputs": [
         {
@@ -6093,7 +5741,7 @@
         399.1205767297505
       ],
       "flags": {},
-      "order": 142,
+      "order": 141,
       "mode": 0,
       "inputs": [
         {
@@ -6123,7 +5771,7 @@
         }
       },
       "widgets_values": [
-        "Generate a cinematic text-to-video prompt for a music video\n\nYou are a prompt engineer, aiming to write user inputs into high-quality prompts for a music vide generation.\nTask requirements:\n1. Reasonably infer and add details to make the video more complete and appealing without altering the original intent;\n2. Enhance the main features in user descriptions (e.g., appearance, expression, quantity, race, posture, etc.), visual style, spatial relationships, and shot scales;\n3. Output the entire prompt in English, retaining original text in quotes and titles, and preserving key input information;\n4. Prompts should match the user's intent and accurately reflect the specified style. If the user does not specify a style, choose the most appropriate style for the video;\n5. Emphasize motion information and different camera movements present in the input description;\n6. Your output should have natural motion attributes. For the target category described, add natural actions of the target using simple and direct verbs;\n7. The prompt should be around 80-100 words long.\n8. PROMPT FORMULA: Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling\n9. PROMPT COMPONENTS:\nSubject Description: Details about the subject's appearance, described using adjectives or short phrases.\nScene Description: Details about the environment where the subject is located, described using adjectives or short phrases.\nMotion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.\nCamera Language: Includes shot types, angles, lenses, and camera movements.\nAtmosphere: Words that describe the desired mood of the scene.\nStyling: Describes the visual style of the scene.\n10. Do not split the prompt in sections. \n11. DO NOT include any of the the prompt components tittles (ubject Description,Scene Description,Motion Description,Camera Language,Atmosphere,Styling). \n12. Do not join the different parts of the prompt with \"+\". \n13. The generated prompt MUST be one single paragraph in natural English that describes the scene.\n\nPrompt examples:\n1. The camera starts with a full screen of antique wooden screens, and slowly pans to the left, revealing an ancient-style girl sitting behind the screen. The girl is wearing Shu embroidered Hanfu, her hair is tied up high, and she is conducting an online video conference.\n2. A knight in shining armor stands by a medieval castle gate at dusk. He mounts a dragon and takes off into the sky as the camera pulls back. Cinematic lighting, glowing sunset clouds\n3. Close-up shot of a new smartphone on a reflective black surface, camera slowly rotates around the phone. Studio lighting catches the metal edges and the screen's glow, against a dark blurred background\n4. A lone astronaut wanders through an alien forest at twilight. The camera tracks from behind through misty trees. Soft bioluminescent glow from plants lights the scene, creating a mysterious, awe-inspiring atmosphere. 4K cinematic detail\n\nI will now provide the data to be used to generate the prompt. Directly write the prompt without extra responses (no markdown, no commentary):\n\nVISUAL ELEMENTS  (select one RANDOM entry from each category):\n- Environments: open field at dusk, dimly lit bedroom, empty city street at night, casino poker tables\n- Lighting: warm amber glow, cool window light, neon reflections\n- Camera Motion: zoom in, zoom out, tilt down, rotate around, pan, track\n- Physical Interactions: walking through tall grass, lying on bed, leaning against wall\n- Facial Expressions: Intense raw emotion\n- Shot Types: Close up, medium, wide angle, over the shoulder, point of view\n- Outfit: a black shirt\n\nCHARACTER: \nA man\n\nINFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: \nFly me to the moon, let me play among the stars, let me see what spring is like on Jupiter and Mars. In other words, hold my hand.  In other words, baby kiss me Fill my heart with song and let me sing forevermore You are all I long for, all I worship and adore  be true In other words I love you  Fill my heart with song Let me sing forevermore You are all I long for All I worship  door In other words Please be true In other words In other words I love you\n\nTHE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:"
+        "Generate a cinematic text-to-video prompt for a music video\n\nYou are a prompt engineer, aiming to write user inputs into high-quality prompts for a music vide generation.\nTask requirements:\n1. Reasonably infer and add details to make the video more complete and appealing without altering the original intent;\n2. Enhance the main features in user descriptions (e.g., appearance, expression, quantity, race, posture, etc.), visual style, spatial relationships, and shot scales;\n3. Output the entire prompt in English, retaining original text in quotes and titles, and preserving key input information;\n4. Prompts should match the user's intent and accurately reflect the specified style. If the user does not specify a style, choose the most appropriate style for the video;\n5. Emphasize motion information and different camera movements present in the input description;\n6. Your output should have natural motion attributes. For the target category described, add natural actions of the target using simple and direct verbs;\n7. The prompt should be around 80-100 words long.\n8. PROMPT FORMULA: Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling\n9. PROMPT COMPONENTS:\nSubject Description: Details about the subject's appearance, described using adjectives or short phrases.\nScene Description: Details about the environment where the subject is located, described using adjectives or short phrases.\nMotion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.\nCamera Language: Includes shot types, angles, lenses, and camera movements.\nAtmosphere: Words that describe the desired mood of the scene.\nStyling: Describes the visual style of the scene.\n10. Do not split the prompt in sections. \n11. DO NOT include any of the the prompt components tittles (ubject Description,Scene Description,Motion Description,Camera Language,Atmosphere,Styling). \n12. Do not join the different parts of the prompt with \"+\". \n13. The generated prompt MUST be one single paragraph in natural English that describes the scene.\n\nPrompt examples:\n1. The camera starts with a full screen of antique wooden screens, and slowly pans to the left, revealing an ancient-style girl sitting behind the screen. The girl is wearing Shu embroidered Hanfu, her hair is tied up high, and she is conducting an online video conference.\n2. A knight in shining armor stands by a medieval castle gate at dusk. He mounts a dragon and takes off into the sky as the camera pulls back. Cinematic lighting, glowing sunset clouds\n3. Close-up shot of a new smartphone on a reflective black surface, camera slowly rotates around the phone. Studio lighting catches the metal edges and the screen's glow, against a dark blurred background\n4. A lone astronaut wanders through an alien forest at twilight. The camera tracks from behind through misty trees. Soft bioluminescent glow from plants lights the scene, creating a mysterious, awe-inspiring atmosphere. 4K cinematic detail\n\nI will now provide the data to be used to generate the prompt. Directly write the prompt without extra responses (no markdown, no commentary):\n\nVISUAL ELEMENTS  (select one RANDOM entry from each category):\n- Environments: dimly lit bedroom, empty city street at night, casino poker tables\n- Lighting: warm amber glow, cool window light, neon reflections\n- Camera Motion: zoom in, zoom out, tilt down, rotate around, pan, track\n- Physical Interactions: walking on the street, lying on bed, leaning against wall\n- Facial Expressions: Intense raw emotion\n- Shot Types: Close up, medium, wide angle, over the shoulder, point of view\n- Outfit: a black suit, a grey suit\n\nCHARACTER: \nA man with a hat\n\nINFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: \nFly me to the moon, let me play among the stars, let me see what spring is like on Jupiter and Mars. In other words, hold my hand.  In other words, baby kiss me Fill my heart with song and let me sing forevermore You are all I long for, all I worship and adore  be true In other words I love you  Fill my heart with song Let me sing forevermore You are all I long for All I worship  door In other words Please be true In other words In other words I love you\n\nTHE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:"
       ]
     },
     {
@@ -6138,7 +5786,7 @@
         101.90623675877032
       ],
       "flags": {},
-      "order": 141,
+      "order": 140,
       "mode": 0,
       "inputs": [
         {
@@ -6168,7 +5816,7 @@
         }
       },
       "widgets_values": [
-        "Fill my heart with song and let me sing."
+        "In other words"
       ]
     },
     {
@@ -6185,7 +5833,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 140,
+      "order": 139,
       "mode": 0,
       "inputs": [
         {
@@ -6213,7 +5861,7 @@
         }
       },
       "widgets_values": [
-        "Fill my heart with song and let me sing."
+        "In other words"
       ]
     },
     {
@@ -6228,7 +5876,7 @@
         126.74308968113633
       ],
       "flags": {},
-      "order": 139,
+      "order": 138,
       "mode": 0,
       "inputs": [
         {
@@ -6258,7 +5906,7 @@
         }
       },
       "widgets_values": [
-        "Chunk 11: A man in a cinematic scene. Lyrics: Fill my heart with song and let me sing."
+        "A man with a hat in a grey suit in dimly lit bedroom, lying on bed. The camera medium, zoom in, capturing Intense raw emotion. The atmosphere is cinematic realism."
       ]
     },
     {
@@ -6273,7 +5921,7 @@
         486.9475763976503
       ],
       "flags": {},
-      "order": 155,
+      "order": 154,
       "mode": 0,
       "inputs": [
         {
@@ -6301,7 +5949,52 @@
         }
       },
       "widgets_values": [
-        "Generate a cinematic text-to-video prompt for a music video\n\nYou are a prompt engineer, aiming to write user inputs into high-quality prompts for a music vide generation.\nTask requirements:\n1. Reasonably infer and add details to make the video more complete and appealing without altering the original intent;\n2. Enhance the main features in user descriptions (e.g., appearance, expression, quantity, race, posture, etc.), visual style, spatial relationships, and shot scales;\n3. Output the entire prompt in English, retaining original text in quotes and titles, and preserving key input information;\n4. Prompts should match the user's intent and accurately reflect the specified style. If the user does not specify a style, choose the most appropriate style for the video;\n5. Emphasize motion information and different camera movements present in the input description;\n6. Your output should have natural motion attributes. For the target category described, add natural actions of the target using simple and direct verbs;\n7. The prompt should be around 80-100 words long.\n8. PROMPT FORMULA: Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling\n9. PROMPT COMPONENTS:\nSubject Description: Details about the subject's appearance, described using adjectives or short phrases.\nScene Description: Details about the environment where the subject is located, described using adjectives or short phrases.\nMotion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.\nCamera Language: Includes shot types, angles, lenses, and camera movements.\nAtmosphere: Words that describe the desired mood of the scene.\nStyling: Describes the visual style of the scene.\n10. Do not split the prompt in sections. \n11. DO NOT include any of the the prompt components tittles (ubject Description,Scene Description,Motion Description,Camera Language,Atmosphere,Styling). \n12. Do not join the different parts of the prompt with \"+\". \n13. The generated prompt MUST be one single paragraph in natural English that describes the scene.\n\nPrompt examples:\n1. The camera starts with a full screen of antique wooden screens, and slowly pans to the left, revealing an ancient-style girl sitting behind the screen. The girl is wearing Shu embroidered Hanfu, her hair is tied up high, and she is conducting an online video conference.\n2. A knight in shining armor stands by a medieval castle gate at dusk. He mounts a dragon and takes off into the sky as the camera pulls back. Cinematic lighting, glowing sunset clouds\n3. Close-up shot of a new smartphone on a reflective black surface, camera slowly rotates around the phone. Studio lighting catches the metal edges and the screen's glow, against a dark blurred background\n4. A lone astronaut wanders through an alien forest at twilight. The camera tracks from behind through misty trees. Soft bioluminescent glow from plants lights the scene, creating a mysterious, awe-inspiring atmosphere. 4K cinematic detail\n\nI will now provide the data to be used to generate the prompt. Directly write the prompt without extra responses (no markdown, no commentary):\n\nVISUAL ELEMENTS  (select one RANDOM entry from each category):\n- Environments: open field at dusk, dimly lit bedroom, empty city street at night, casino poker tables\n- Lighting: warm amber glow, cool window light, neon reflections\n- Camera Motion: zoom in, zoom out, tilt down, rotate around, pan, track\n- Physical Interactions: walking through tall grass, lying on bed, leaning against wall\n- Facial Expressions: Intense raw emotion\n- Shot Types: Close up, medium, wide angle, over the shoulder, point of view\n- Outfit: a black shirt\n\nCHARACTER: \nA man\n\nINFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: \nFly me to the moon, let me play among the stars, let me see what spring is like on Jupiter and Mars. In other words, hold my hand.  In other words, baby kiss me Fill my heart with song and let me sing forevermore You are all I long for, all I worship and adore  be true In other words I love you  Fill my heart with song Let me sing forevermore You are all I long for All I worship  door In other words Please be true In other words In other words I love you\n\nTHE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:Fill my heart with song and let me sing."
+        "Generate a cinematic text-to-video prompt for a music video\n\nYou are a prompt engineer, aiming to write user inputs into high-quality prompts for a music vide generation.\nTask requirements:\n1. Reasonably infer and add details to make the video more complete and appealing without altering the original intent;\n2. Enhance the main features in user descriptions (e.g., appearance, expression, quantity, race, posture, etc.), visual style, spatial relationships, and shot scales;\n3. Output the entire prompt in English, retaining original text in quotes and titles, and preserving key input information;\n4. Prompts should match the user's intent and accurately reflect the specified style. If the user does not specify a style, choose the most appropriate style for the video;\n5. Emphasize motion information and different camera movements present in the input description;\n6. Your output should have natural motion attributes. For the target category described, add natural actions of the target using simple and direct verbs;\n7. The prompt should be around 80-100 words long.\n8. PROMPT FORMULA: Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling\n9. PROMPT COMPONENTS:\nSubject Description: Details about the subject's appearance, described using adjectives or short phrases.\nScene Description: Details about the environment where the subject is located, described using adjectives or short phrases.\nMotion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.\nCamera Language: Includes shot types, angles, lenses, and camera movements.\nAtmosphere: Words that describe the desired mood of the scene.\nStyling: Describes the visual style of the scene.\n10. Do not split the prompt in sections. \n11. DO NOT include any of the the prompt components tittles (ubject Description,Scene Description,Motion Description,Camera Language,Atmosphere,Styling). \n12. Do not join the different parts of the prompt with \"+\". \n13. The generated prompt MUST be one single paragraph in natural English that describes the scene.\n\nPrompt examples:\n1. The camera starts with a full screen of antique wooden screens, and slowly pans to the left, revealing an ancient-style girl sitting behind the screen. The girl is wearing Shu embroidered Hanfu, her hair is tied up high, and she is conducting an online video conference.\n2. A knight in shining armor stands by a medieval castle gate at dusk. He mounts a dragon and takes off into the sky as the camera pulls back. Cinematic lighting, glowing sunset clouds\n3. Close-up shot of a new smartphone on a reflective black surface, camera slowly rotates around the phone. Studio lighting catches the metal edges and the screen's glow, against a dark blurred background\n4. A lone astronaut wanders through an alien forest at twilight. The camera tracks from behind through misty trees. Soft bioluminescent glow from plants lights the scene, creating a mysterious, awe-inspiring atmosphere. 4K cinematic detail\n\nI will now provide the data to be used to generate the prompt. Directly write the prompt without extra responses (no markdown, no commentary):\n\nVISUAL ELEMENTS  (select one RANDOM entry from each category):\n- Environments: dimly lit bedroom, empty city street at night, casino poker tables\n- Lighting: warm amber glow, cool window light, neon reflections\n- Camera Motion: zoom in, zoom out, tilt down, rotate around, pan, track\n- Physical Interactions: walking on the street, lying on bed, leaning against wall\n- Facial Expressions: Intense raw emotion\n- Shot Types: Close up, medium, wide angle, over the shoulder, point of view\n- Outfit: a black suit, a grey suit\n\nCHARACTER: \nA man with a hat\n\nINFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: \nFly me to the moon, let me play among the stars, let me see what spring is like on Jupiter and Mars. In other words, hold my hand.  In other words, baby kiss me Fill my heart with song and let me sing forevermore You are all I long for, all I worship and adore  be true In other words I love you  Fill my heart with song Let me sing forevermore You are all I long for All I worship  door In other words Please be true In other words In other words I love you\n\nTHE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:In other words"
+      ]
+    },
+    {
+      "id": 2490,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2197.9704741500973,
+        -802.0309949120531
+      ],
+      "size": [
+        445.61986885009355,
+        297.4124640072272
+      ],
+      "flags": {},
+      "order": 155,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 5178
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            5265
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.3"
+        }
+      },
+      "widgets_values": [
+        "A man in a sleek black suit and a stylish hat stands in a dimly lit bedroom, the warm amber glow of a bedside lamp casting soft shadows across the room. He gazes intensely, filled with raw emotion, as he leans against the wall, lost in thought. The camera slowly zooms in on his face, capturing the depth of his feelings, then gently pulls back to reveal the intimate space around him. The atmosphere is romantic and nostalgic, evoking a sense of longing and connection, as if he is yearning for a love that transcends the stars."
       ]
     },
     {
@@ -6316,7 +6009,7 @@
         764.873971472141
       ],
       "flags": {},
-      "order": 72,
+      "order": 67,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -6348,7 +6041,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 73,
+      "order": 68,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6373,99 +6066,6 @@
       ]
     },
     {
-      "id": 1221,
-      "type": "VHS_VideoCombine",
-      "pos": [
-        3996.075472376313,
-        -547.7135523183293
-      ],
-      "size": [
-        266.0651550292969,
-        512.0434366861979
-      ],
-      "flags": {},
-      "order": 162,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 1941
-        },
-        {
-          "name": "audio",
-          "shape": 7,
-          "type": "AUDIO",
-          "link": 5183
-        },
-        {
-          "name": "meta_batch",
-          "shape": 7,
-          "type": "VHS_BatchManager",
-          "link": null
-        },
-        {
-          "name": "vae",
-          "shape": 7,
-          "type": "VAE",
-          "link": null
-        },
-        {
-          "name": "frame_rate",
-          "type": "FLOAT",
-          "widget": {
-            "name": "frame_rate"
-          },
-          "link": 5211
-        }
-      ],
-      "outputs": [
-        {
-          "name": "Filenames",
-          "type": "VHS_FILENAMES",
-          "links": []
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui-videohelpersuite",
-        "ver": "1.6.1",
-        "Node name for S&R": "VHS_VideoCombine",
-        "ue_properties": {
-          "version": "7.3",
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": {
-        "frame_rate": 24,
-        "loop_count": 0,
-        "filename_prefix": "AnimateDiff",
-        "format": "video/h264-mp4",
-        "pix_fmt": "yuv420p",
-        "crf": 19,
-        "save_metadata": true,
-        "trim_to_audio": false,
-        "pingpong": false,
-        "save_output": true,
-        "videopreview": {
-          "hidden": false,
-          "paused": false,
-          "params": {
-            "filename": "AnimateDiff_00059-audio.mp4",
-            "subfolder": "",
-            "type": "output",
-            "format": "video/h264-mp4",
-            "frame_rate": 25,
-            "workflow": "AnimateDiff_00059.png",
-            "fullpath": "/basedir/output/AnimateDiff_00059-audio.mp4"
-          }
-        }
-      },
-      "color": "#432",
-      "bgcolor": "#653",
-      "shape": 1
-    },
-    {
       "id": 2552,
       "type": "SetNode",
       "pos": [
@@ -6479,7 +6079,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 147,
+      "order": 146,
       "mode": 0,
       "inputs": [
         {
@@ -6520,7 +6120,7 @@
         88
       ],
       "flags": {},
-      "order": 107,
+      "order": 102,
       "mode": 0,
       "inputs": [
         {
@@ -6549,7 +6149,7 @@
         }
       },
       "widgets_values": [
-        "[MANUAL] Processing chunk 11/38 (27 remaining)"
+        "[AUTO] Processing chunk 33/38 (5 remaining)"
       ]
     },
     {
@@ -6566,7 +6166,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 74,
+      "order": 69,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6602,7 +6202,7 @@
         150
       ],
       "flags": {},
-      "order": 149,
+      "order": 148,
       "mode": 0,
       "inputs": [
         {
@@ -6685,7 +6285,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 152,
+      "order": 151,
       "mode": 0,
       "inputs": [
         {
@@ -6726,7 +6326,7 @@
         88
       ],
       "flags": {},
-      "order": 108,
+      "order": 103,
       "mode": 0,
       "inputs": [
         {
@@ -6755,7 +6355,7 @@
         }
       },
       "widgets_values": [
-        "⏸️ Auto-queue disabled (manual mode)"
+        "✅ Chunk 31 done. Queued chunk 32 (6 more after this)"
       ]
     },
     {
@@ -6772,7 +6372,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 75,
+      "order": 70,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6808,7 +6408,7 @@
         146
       ],
       "flags": {},
-      "order": 127,
+      "order": 124,
       "mode": 0,
       "inputs": [
         {
@@ -6906,7 +6506,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 137,
+      "order": 136,
       "mode": 0,
       "inputs": [
         {
@@ -6947,7 +6547,7 @@
         88
       ],
       "flags": {},
-      "order": 109,
+      "order": 104,
       "mode": 0,
       "inputs": [
         {
@@ -6991,7 +6591,7 @@
         88
       ],
       "flags": {},
-      "order": 110,
+      "order": 105,
       "mode": 0,
       "inputs": [
         {
@@ -7020,7 +6620,7 @@
         }
       },
       "widgets_values": [
-        "/basedir/output/c6/video_chunk_0010.mp4"
+        "/basedir/output/c7/video_chunk_0031.mp4"
       ]
     },
     {
@@ -7037,7 +6637,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 76,
+      "order": 71,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -7073,7 +6673,7 @@
         170
       ],
       "flags": {},
-      "order": 138,
+      "order": 137,
       "mode": 0,
       "inputs": [
         {
@@ -7167,7 +6767,7 @@
         102.63785532073143
       ],
       "flags": {},
-      "order": 77,
+      "order": 72,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -7196,7 +6796,7 @@
         102.63785532073143
       ],
       "flags": {},
-      "order": 78,
+      "order": 73,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -7225,7 +6825,7 @@
         101.19414812714376
       ],
       "flags": {},
-      "order": 79,
+      "order": 74,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -7238,64 +6838,6 @@
       },
       "widgets_values": [
         "# WORKFLOW STATUS\n\n---\n"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 2561,
-      "type": "MarkdownNote",
-      "pos": [
-        -3440.823594756352,
-        -2751.4959253382017
-      ],
-      "size": [
-        1336.9888732479837,
-        101.19414812714376
-      ],
-      "flags": {},
-      "order": 80,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {
-        "ue_properties": {
-          "version": "7.3",
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": [
-        "# WORKFLOW CONTROL\n\n---\n"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 1230,
-      "type": "MarkdownNote",
-      "pos": [
-        -3132.55326040398,
-        -2973.3171260448617
-      ],
-      "size": [
-        652.2125854492188,
-        146.52639770507812
-      ],
-      "flags": {},
-      "order": 81,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {
-        "ue_properties": {
-          "version": "7.3",
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": [
-        "# 🎬 VRGDG HUMO Music Video Workflow\n\nThis workflow creates **music videos (or other videos)** in **one shot** using the **HUMO model**.  \n\n---\n"
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -7314,7 +6856,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 132,
+      "order": 129,
       "mode": 0,
       "inputs": [
         {
@@ -7344,132 +6886,50 @@
       ]
     },
     {
-      "id": 2530,
-      "type": "Fast Groups Muter (rgthree)",
+      "id": 1942,
+      "type": "LoadImage",
       "pos": [
-        -2582.2942923340433,
-        -2461.8124466971562
+        -3140,
+        -1080
       ],
       "size": [
-        392.2209952092884,
-        82
+        214.080078125,
+        342.9638977050781
       ],
       "flags": {},
-      "order": 82,
+      "order": 75,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
-          "name": "OPT_CONNECTION",
-          "type": "*",
-          "links": null
-        }
-      ],
-      "properties": {
-        "matchColors": "",
-        "matchTitle": "OPTION",
-        "showNav": true,
-        "showAllGraphs": true,
-        "sort": "position",
-        "customSortAlphabet": "",
-        "toggleRestriction": "max one",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.3"
-        }
-      }
-    },
-    {
-      "id": 2471,
-      "type": "easy showAnything",
-      "pos": [
-        -1430.718087543204,
-        -1174.7781200423137
-      ],
-      "size": [
-        1159.5544099771298,
-        400.70549993289774
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 115,
-      "mode": 0,
-      "inputs": [
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2739
+          ]
+        },
         {
-          "name": "anything",
-          "shape": 7,
-          "type": "*",
-          "link": 5151
-        }
-      ],
-      "outputs": [
-        {
-          "name": "output",
-          "type": "*",
+          "name": "MASK",
+          "type": "MASK",
           "links": []
         }
       ],
-      "title": "Full prompts",
       "properties": {
-        "cnr_id": "comfyui-easy-use",
-        "ver": "1.3.4",
-        "Node name for S&R": "easy showAnything",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "LoadImage",
         "ue_properties": {
+          "version": "7.3",
           "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.3"
+          "input_ue_unconnectable": {}
         }
       },
       "widgets_values": [
-        "{\"prompts\": [\"Chunk 1: A man in a cinematic scene. Lyrics: instrumental break\", \"Chunk 2: A man in a cinematic scene. Lyrics: music interlude\", \"Chunk 3: A man in a cinematic scene. Lyrics: Fly me to the moon, let me play.\", \"Chunk 4: A man in a cinematic scene. Lyrics: Let me play among the stars. Let me.\", \"Chunk 5: A man in a cinematic scene. Lyrics: Let me see what spring is like on...\", \"Chunk 6: A man in a cinematic scene. Lyrics: like on Jupiter and Mars. In other words,\", \"Chunk 7: A man in a cinematic scene. Lyrics: In other words, hold my hand.\", \"Chunk 8: A man in a cinematic scene. Lyrics: Hold my hand In other words\", \"Chunk 9: A man in a cinematic scene. Lyrics: In other words, baby kiss me.\", \"Chunk 10: A man in a cinematic scene. Lyrics: Baby, kiss me.\", \"Chunk 11: A man in a cinematic scene. Lyrics: Fill my heart with song and let me sing.\", \"Chunk 12: A man in a cinematic scene. Lyrics: And let me sing forevermore\", \"Chunk 13: A man in a cinematic scene. Lyrics: You are all I long for, all I worship.\", \"Chunk 14: A man in a cinematic scene. Lyrics: for all I worship and adore.\", \"Chunk 15: A man in a cinematic scene. Lyrics: In other words, please be true.\", \"Chunk 16: A man in a cinematic scene. Lyrics: Please be true.\", \"Chunk 17: A man in a cinematic scene. Lyrics: In other words, I love you.\", \"Chunk 18: A man in a cinematic scene. Lyrics: I love you.\", \"Chunk 19: A man in a cinematic scene. Lyrics: instrumental break\", \"Chunk 20: A man in a cinematic scene. Lyrics: music interlude\", \"Chunk 21: A man in a cinematic scene. Lyrics: atmospheric moment\", \"Chunk 22: A man in a cinematic scene. Lyrics: instrumental break\", \"Chunk 23: A man in a cinematic scene. Lyrics: music interlude\", \"Chunk 24: A man in a cinematic scene. Lyrics: atmospheric moment\", \"Chunk 25: A man in a cinematic scene. Lyrics: instrumental break\", \"Chunk 26: A man in a cinematic scene. Lyrics: music interlude\", \"Chunk 27: A man in a cinematic scene. Lyrics: Fill my heart with song.\", \"Chunk 28: A man in a cinematic scene. Lyrics: heart with song. Let me sing forevermore.\", \"Chunk 29: A man in a cinematic scene. Lyrics: evermore. You are all I long for.\", \"Chunk 30: A man in a cinematic scene. Lyrics: all I long for all I worship and adore\", \"Chunk 31: A man in a cinematic scene. Lyrics: And adore In other words\", \"Chunk 32: A man in a cinematic scene. Lyrics: Please be true\", \"Chunk 33: A man in a cinematic scene. Lyrics: In other words\", \"Chunk 34: A man in a cinematic scene. Lyrics: world. In other words.\", \"Chunk 35: A man in a cinematic scene. Lyrics: music interlude\", \"Chunk 36: A man in a cinematic scene. Lyrics: atmospheric moment\", \"Chunk 37: A man in a cinematic scene. Lyrics: instrumental break\", \"Chunk 38: A man in a cinematic scene. Lyrics: music interlude\"], \"total_chunks\": 38, \"audio_hash\": \"6228b2e61c8dc24b\", \"audio_duration\": 149.65551020408162, \"chunk_transcriptions\": [\"you\", \"Fly me\", \"Fly me to the moon, let me play.\", \"Let me play among the stars. Let me.\", \"Let me see what spring is like on...\", \"like on Jupiter and Mars. In other words,\", \"In other words, hold my hand.\", \"Hold my hand In other words\", \"In other words, baby kiss me.\", \"Baby, kiss me.\", \"Fill my heart with song and let me sing.\", \"And let me sing forevermore\", \"You are all I long for, all I worship.\", \"for all I worship and adore.\", \"In other words, please be true.\", \"Please be true.\", \"In other words, I love you.\", \"I love you.\", \".\", \".\", \"Thank you.\", \"you\", \"you\", \"you\", \".\", \"\\u00b6\\u00b6\", \"Fill my heart with song.\", \"heart with song. Let me sing forevermore.\", \"evermore. You are all I long for.\", \"all I long for all I worship and adore\", \"And adore In other words\", \"Please be true\", \"In other words\", \"world. In other words.\", \"I love\", \"I love\", \"You\", \"you\"], \"processed_chunk_lyrics\": [\"instrumental break\", \"music interlude\", \"Fly me to the moon, let me play.\", \"Let me play among the stars. Let me.\", \"Let me see what spring is like on...\", \"like on Jupiter and Mars. In other words,\", \"In other words, hold my hand.\", \"Hold my hand In other words\", \"In other words, baby kiss me.\", \"Baby, kiss me.\", \"Fill my heart with song and let me sing.\", \"And let me sing forevermore\", \"You are all I long for, all I worship.\", \"for all I worship and adore.\", \"In other words, please be true.\", \"Please be true.\", \"In other words, I love you.\", \"I love you.\", \"instrumental break\", \"music interlude\", \"atmospheric moment\", \"instrumental break\", \"music interlude\", \"atmospheric moment\", \"instrumental break\", \"music interlude\", \"Fill my heart with song.\", \"heart with song. Let me sing forevermore.\", \"evermore. You are all I long for.\", \"all I long for all I worship and adore\", \"And adore In other words\", \"Please be true\", \"In other words\", \"world. In other words.\", \"music interlude\", \"atmospheric moment\", \"instrumental break\", \"music interlude\"], \"llm_instructions\": \"Generate a cinematic text-to-video prompt for a music video\\n\\nYou are a prompt engineer, aiming to write user inputs into high-quality prompts for a music vide generation.\\nTask requirements:\\n1. Reasonably infer and add details to make the video more complete and appealing without altering the original intent;\\n2. Enhance the main features in user descriptions (e.g., appearance, expression, quantity, race, posture, etc.), visual style, spatial relationships, and shot scales;\\n3. Output the entire prompt in English, retaining original text in quotes and titles, and preserving key input information;\\n4. Prompts should match the user's intent and accurately reflect the specified style. If the user does not specify a style, choose the most appropriate style for the video;\\n5. Emphasize motion information and different camera movements present in the input description;\\n6. Your output should have natural motion attributes. For the target category described, add natural actions of the target using simple and direct verbs;\\n7. The prompt should be around 80-100 words long.\\n8. PROMPT FORMULA: Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling\\n9. PROMPT COMPONENTS:\\nSubject Description: Details about the subject's appearance, described using adjectives or short phrases.\\nScene Description: Details about the environment where the subject is located, described using adjectives or short phrases.\\nMotion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.\\nCamera Language: Includes shot types, angles, lenses, and camera movements.\\nAtmosphere: Words that describe the desired mood of the scene.\\nStyling: Describes the visual style of the scene.\\n10. Do not split the prompt in sections. \\n11. DO NOT include any of the the prompt components tittles (ubject Description,Scene Description,Motion Description,Camera Language,Atmosphere,Styling). \\n12. Do not join the different parts of the prompt with \\\"+\\\". \\n13. The generated prompt MUST be one single paragraph in natural English that describes the scene.\\n\\nPrompt examples:\\n1. The camera starts with a full screen of antique wooden screens, and slowly pans to the left, revealing an ancient-style girl sitting behind the screen. The girl is wearing Shu embroidered Hanfu, her hair is tied up high, and she is conducting an online video conference.\\n2. A knight in shining armor stands by a medieval castle gate at dusk. He mounts a dragon and takes off into the sky as the camera pulls back. Cinematic lighting, glowing sunset clouds\\n3. Close-up shot of a new smartphone on a reflective black surface, camera slowly rotates around the phone. Studio lighting catches the metal edges and the screen's glow, against a dark blurred background\\n4. A lone astronaut wanders through an alien forest at twilight. The camera tracks from behind through misty trees. Soft bioluminescent glow from plants lights the scene, creating a mysterious, awe-inspiring atmosphere. 4K cinematic detail\\n\\nI will now provide the data to be used to generate the prompt. Directly write the prompt without extra responses (no markdown, no commentary):\\n\\nVISUAL ELEMENTS  (select one RANDOM entry from each category):\\n- Environments: open field at dusk, dimly lit bedroom, empty city street at night, casino poker tables\\n- Lighting: warm amber glow, cool window light, neon reflections\\n- Camera Motion: zoom in, zoom out, tilt down, rotate around, pan, track\\n- Physical Interactions: walking through tall grass, lying on bed, leaning against wall\\n- Facial Expressions: Intense raw emotion\\n- Shot Types: Close up, medium, wide angle, over the shoulder, point of view\\n- Outfit: a black shirt\\n\\nCHARACTER: \\nA man\\n\\nINFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: \\nFly me to the moon, let me play among the stars, let me see what spring is like on Jupiter and Mars. In other words, hold my hand.  In other words, baby kiss me Fill my heart with song and let me sing forevermore You are all I long for, all I worship and adore  be true In other words I love you  Fill my heart with song Let me sing forevermore You are all I long for All I worship  door In other words Please be true In other words In other words I love you\\n\\nTHE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:\", \"empty_chunk_count\": 14}"
-      ]
-    },
-    {
-      "id": 2490,
-      "type": "ShowText|pysssss",
-      "pos": [
-        2197.9704741500973,
-        -802.0309949120531
+        "sinatra-6.webp",
+        "image"
       ],
-      "size": [
-        445.61986885009355,
-        297.4124640072272
-      ],
-      "flags": {},
-      "order": 156,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 5178
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "shape": 6,
-          "type": "STRING",
-          "links": [
-            5265
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui-custom-scripts",
-        "ver": "1.2.5",
-        "Node name for S&R": "ShowText|pysssss",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.3"
-        }
-      },
-      "widgets_values": [
-        "A man in a black shirt stands in an open field at dusk, surrounded by swaying tall grass that catches the warm amber glow of the setting sun. The camera zooms in on his face, capturing his intense raw emotion as he closes his eyes, letting the gentle breeze fill his heart with song. He begins to sway slightly, lost in the moment, as the camera rotates around him, revealing the vastness of the field and the colorful sky above. The atmosphere is romantic and dreamy, evoking a sense of longing and connection, as if he is singing to the stars."
-      ]
+      "color": "#323",
+      "bgcolor": "#535"
     },
     {
       "id": 2481,
@@ -7483,7 +6943,7 @@
         882
       ],
       "flags": {},
-      "order": 104,
+      "order": 99,
       "mode": 0,
       "inputs": [
         {
@@ -7571,7 +7031,7 @@
         }
       },
       "widgets_values": [
-        "A man",
+        "A man with a hat",
         "cinematic realism, emotional storytelling, soft surrealism",
         3.88,
         "english",
@@ -7581,14 +7041,520 @@
         "fixed",
         "instrumental break, music interlude, atmospheric moment",
         3,
-        "open field at dusk, dimly lit bedroom, empty city street at night, casino poker tables",
+        "dimly lit bedroom, empty city street at night, casino poker tables",
         "warm amber glow, cool window light, neon reflections",
         "zoom in, zoom out, tilt down, rotate around, pan, track",
-        "walking through tall grass, lying on bed, leaning against wall",
+        "walking on the street, lying on bed, leaning against wall",
         "Intense raw emotion",
         "Close up, medium, wide angle, over the shoulder, point of view",
-        "a black shirt"
+        "a black suit, a grey suit"
       ]
+    },
+    {
+      "id": 2471,
+      "type": "easy showAnything",
+      "pos": [
+        -1430.718087543204,
+        -1174.7781200423137
+      ],
+      "size": [
+        1159.5544099771298,
+        400.70549993289774
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 113,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 5151
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": []
+        }
+      ],
+      "title": "Full prompts",
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "1.3.4",
+        "Node name for S&R": "easy showAnything",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.3"
+        }
+      },
+      "widgets_values": [
+        "{\"prompts\": [\"A man with a hat in a black suit in empty city street at night, walking on the street. The camera point of view, track, capturing Intense raw emotion. The atmosphere is soft surrealism.\", \"A man with a hat in a grey suit in casino poker tables, walking on the street. The camera over the shoulder, track, capturing Intense raw emotion. The atmosphere is soft surrealism.\", \"A man with a hat in a grey suit in casino poker tables, lying on bed. The camera point of view, zoom in, capturing Intense raw emotion. The atmosphere is emotional storytelling.\", \"A man with a hat in a black suit in casino poker tables, leaning against wall. The camera medium, zoom out, capturing Intense raw emotion. The atmosphere is emotional storytelling.\", \"A man with a hat in a grey suit in casino poker tables, lying on bed. The camera point of view, zoom out, capturing Intense raw emotion. The atmosphere is soft surrealism.\", \"A man with a hat in a black suit in empty city street at night, walking on the street. The camera medium, track, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a black suit in empty city street at night, walking on the street. The camera medium, tilt down, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a grey suit in dimly lit bedroom, leaning against wall. The camera Close up, pan, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a black suit in dimly lit bedroom, leaning against wall. The camera wide angle, rotate around, capturing Intense raw emotion. The atmosphere is emotional storytelling.\", \"A man with a hat in a black suit in dimly lit bedroom, lying on bed. The camera medium, track, capturing Intense raw emotion. The atmosphere is emotional storytelling.\", \"A man with a hat in a grey suit in empty city street at night, lying on bed. The camera point of view, track, capturing Intense raw emotion. The atmosphere is soft surrealism.\", \"A man with a hat in a grey suit in dimly lit bedroom, walking on the street. The camera Close up, zoom out, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a black suit in casino poker tables, lying on bed. The camera wide angle, zoom out, capturing Intense raw emotion. The atmosphere is soft surrealism.\", \"A man with a hat in a grey suit in empty city street at night, walking on the street. The camera Close up, zoom in, capturing Intense raw emotion. The atmosphere is soft surrealism.\", \"A man with a hat in a black suit in empty city street at night, walking on the street. The camera Close up, pan, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a black suit in casino poker tables, leaning against wall. The camera Close up, zoom in, capturing Intense raw emotion. The atmosphere is soft surrealism.\", \"A man with a hat in a black suit in empty city street at night, leaning against wall. The camera Close up, pan, capturing Intense raw emotion. The atmosphere is emotional storytelling.\", \"A man with a hat in a grey suit in empty city street at night, leaning against wall. The camera Close up, zoom in, capturing Intense raw emotion. The atmosphere is emotional storytelling.\", \"A man with a hat in a black suit in casino poker tables, leaning against wall. The camera Close up, tilt down, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a black suit in dimly lit bedroom, lying on bed. The camera over the shoulder, rotate around, capturing Intense raw emotion. The atmosphere is soft surrealism.\", \"A man with a hat in a grey suit in dimly lit bedroom, leaning against wall. The camera wide angle, tilt down, capturing Intense raw emotion. The atmosphere is emotional storytelling.\", \"A man with a hat in a black suit in dimly lit bedroom, leaning against wall. The camera medium, zoom in, capturing Intense raw emotion. The atmosphere is soft surrealism.\", \"A man with a hat in a grey suit in empty city street at night, walking on the street. The camera medium, zoom out, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a black suit in casino poker tables, lying on bed. The camera Close up, tilt down, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a black suit in casino poker tables, leaning against wall. The camera Close up, zoom out, capturing Intense raw emotion. The atmosphere is emotional storytelling.\", \"A man with a hat in a grey suit in casino poker tables, lying on bed. The camera Close up, tilt down, capturing Intense raw emotion. The atmosphere is emotional storytelling.\", \"A man with a hat in a grey suit in dimly lit bedroom, lying on bed. The camera point of view, zoom in, capturing Intense raw emotion. The atmosphere is soft surrealism.\", \"A man with a hat in a grey suit in empty city street at night, lying on bed. The camera point of view, pan, capturing Intense raw emotion. The atmosphere is emotional storytelling.\", \"A man with a hat in a grey suit in dimly lit bedroom, lying on bed. The camera point of view, zoom out, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a grey suit in dimly lit bedroom, walking on the street. The camera over the shoulder, pan, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a grey suit in dimly lit bedroom, leaning against wall. The camera Close up, tilt down, capturing Intense raw emotion. The atmosphere is soft surrealism.\", \"A man with a hat in a black suit in empty city street at night, leaning against wall. The camera point of view, zoom out, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a grey suit in dimly lit bedroom, lying on bed. The camera medium, zoom in, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a grey suit in dimly lit bedroom, leaning against wall. The camera point of view, pan, capturing Intense raw emotion. The atmosphere is soft surrealism.\", \"A man with a hat in a grey suit in casino poker tables, walking on the street. The camera Close up, zoom out, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a grey suit in empty city street at night, walking on the street. The camera point of view, zoom in, capturing Intense raw emotion. The atmosphere is cinematic realism.\", \"A man with a hat in a grey suit in dimly lit bedroom, walking on the street. The camera medium, rotate around, capturing Intense raw emotion. The atmosphere is emotional storytelling.\", \"A man with a hat in a grey suit in casino poker tables, leaning against wall. The camera point of view, zoom out, capturing Intense raw emotion. The atmosphere is cinematic realism.\"], \"total_chunks\": 38, \"audio_hash\": \"6228b2e61c8dc24b\", \"audio_duration\": 149.65551020408162, \"chunk_transcriptions\": [\"you\", \"Fly me\", \"Fly me to the moon, let me play.\", \"Let me play among the stars. Let me.\", \"Let me see what spring is like on...\", \"like on Jupiter and Mars. In other words,\", \"In other words, hold my hand.\", \"Hold my hand In other words\", \"In other words, baby kiss me.\", \"Baby, kiss me.\", \"Fill my heart with song and let me sing.\", \"And let me sing forevermore\", \"You are all I long for, all I worship.\", \"for all I worship and adore.\", \"In other words, please be true.\", \"Please be true.\", \"In other words, I love you.\", \"I love you.\", \".\", \".\", \"Thank you.\", \"you\", \"you\", \"you\", \".\", \"\\u00b6\\u00b6\", \"Fill my heart with song.\", \"heart with song. Let me sing forevermore.\", \"evermore. You are all I long for.\", \"all I long for all I worship and adore\", \"And adore In other words\", \"Please be true\", \"In other words\", \"world. In other words.\", \"I love\", \"I love\", \"You\", \"you\"], \"processed_chunk_lyrics\": [\"instrumental break\", \"music interlude\", \"Fly me to the moon, let me play.\", \"Let me play among the stars. Let me.\", \"Let me see what spring is like on...\", \"like on Jupiter and Mars. In other words,\", \"In other words, hold my hand.\", \"Hold my hand In other words\", \"In other words, baby kiss me.\", \"Baby, kiss me.\", \"Fill my heart with song and let me sing.\", \"And let me sing forevermore\", \"You are all I long for, all I worship.\", \"for all I worship and adore.\", \"In other words, please be true.\", \"Please be true.\", \"In other words, I love you.\", \"I love you.\", \"instrumental break\", \"music interlude\", \"atmospheric moment\", \"instrumental break\", \"music interlude\", \"atmospheric moment\", \"instrumental break\", \"music interlude\", \"Fill my heart with song.\", \"heart with song. Let me sing forevermore.\", \"evermore. You are all I long for.\", \"all I long for all I worship and adore\", \"And adore In other words\", \"Please be true\", \"In other words\", \"world. In other words.\", \"music interlude\", \"atmospheric moment\", \"instrumental break\", \"music interlude\"], \"llm_instructions\": \"Generate a cinematic text-to-video prompt for a music video\\n\\nYou are a prompt engineer, aiming to write user inputs into high-quality prompts for a music vide generation.\\nTask requirements:\\n1. Reasonably infer and add details to make the video more complete and appealing without altering the original intent;\\n2. Enhance the main features in user descriptions (e.g., appearance, expression, quantity, race, posture, etc.), visual style, spatial relationships, and shot scales;\\n3. Output the entire prompt in English, retaining original text in quotes and titles, and preserving key input information;\\n4. Prompts should match the user's intent and accurately reflect the specified style. If the user does not specify a style, choose the most appropriate style for the video;\\n5. Emphasize motion information and different camera movements present in the input description;\\n6. Your output should have natural motion attributes. For the target category described, add natural actions of the target using simple and direct verbs;\\n7. The prompt should be around 80-100 words long.\\n8. PROMPT FORMULA: Prompt = Subject (Subject Description) + Scene (Scene Description) + Motion (Motion Description) + Camera Language + Atmosphere + Styling\\n9. PROMPT COMPONENTS:\\nSubject Description: Details about the subject's appearance, described using adjectives or short phrases.\\nScene Description: Details about the environment where the subject is located, described using adjectives or short phrases.\\nMotion Description: Describes the characteristics of movement, including amplitude, speed, and effects of the motion.\\nCamera Language: Includes shot types, angles, lenses, and camera movements.\\nAtmosphere: Words that describe the desired mood of the scene.\\nStyling: Describes the visual style of the scene.\\n10. Do not split the prompt in sections. \\n11. DO NOT include any of the the prompt components tittles (ubject Description,Scene Description,Motion Description,Camera Language,Atmosphere,Styling). \\n12. Do not join the different parts of the prompt with \\\"+\\\". \\n13. The generated prompt MUST be one single paragraph in natural English that describes the scene.\\n\\nPrompt examples:\\n1. The camera starts with a full screen of antique wooden screens, and slowly pans to the left, revealing an ancient-style girl sitting behind the screen. The girl is wearing Shu embroidered Hanfu, her hair is tied up high, and she is conducting an online video conference.\\n2. A knight in shining armor stands by a medieval castle gate at dusk. He mounts a dragon and takes off into the sky as the camera pulls back. Cinematic lighting, glowing sunset clouds\\n3. Close-up shot of a new smartphone on a reflective black surface, camera slowly rotates around the phone. Studio lighting catches the metal edges and the screen's glow, against a dark blurred background\\n4. A lone astronaut wanders through an alien forest at twilight. The camera tracks from behind through misty trees. Soft bioluminescent glow from plants lights the scene, creating a mysterious, awe-inspiring atmosphere. 4K cinematic detail\\n\\nI will now provide the data to be used to generate the prompt. Directly write the prompt without extra responses (no markdown, no commentary):\\n\\nVISUAL ELEMENTS  (select one RANDOM entry from each category):\\n- Environments: dimly lit bedroom, empty city street at night, casino poker tables\\n- Lighting: warm amber glow, cool window light, neon reflections\\n- Camera Motion: zoom in, zoom out, tilt down, rotate around, pan, track\\n- Physical Interactions: walking on the street, lying on bed, leaning against wall\\n- Facial Expressions: Intense raw emotion\\n- Shot Types: Close up, medium, wide angle, over the shoulder, point of view\\n- Outfit: a black suit, a grey suit\\n\\nCHARACTER: \\nA man with a hat\\n\\nINFER THE OVERALL THEME, STORY, AND MOOD FROM THE FULL LYRICS: \\nFly me to the moon, let me play among the stars, let me see what spring is like on Jupiter and Mars. In other words, hold my hand.  In other words, baby kiss me Fill my heart with song and let me sing forevermore You are all I long for, all I worship and adore  be true In other words I love you  Fill my heart with song Let me sing forevermore You are all I long for All I worship  door In other words Please be true In other words In other words I love you\\n\\nTHE PROMPT MUST BE RELEVANT TO THIS SECTION OF THE LYRICS:\", \"empty_chunk_count\": 14}"
+      ]
+    },
+    {
+      "id": 1899,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -2760,
+        -45
+      ],
+      "size": [
+        312.8999938964844,
+        113.88980865478516
+      ],
+      "flags": {},
+      "order": 76,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            4106
+          ]
+        }
+      ],
+      "title": "Empty file path to where your video's will go",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "version": "7.3",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "c7"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930",
+      "shape": 1
+    },
+    {
+      "id": 2495,
+      "type": "easy boolean",
+      "pos": [
+        -3359.4652521966955,
+        -2465.846809720295
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 77,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "links": [
+            5188
+          ]
+        }
+      ],
+      "title": "AutoIndex",
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "1.3.4",
+        "Node name for S&R": "easy boolean",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.3"
+        }
+      },
+      "widgets_values": [
+        true
+      ]
+    },
+    {
+      "id": 2497,
+      "type": "JWInteger",
+      "pos": [
+        -2967.9346041342733,
+        -2459.661899646869
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 78,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            5189
+          ]
+        }
+      ],
+      "title": "ManualIndex",
+      "properties": {
+        "cnr_id": "comfyui-various",
+        "ver": "5bd85aaf7616878471469c4ec7e11bbd0cef3bf2",
+        "Node name for S&R": "JWInteger",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.3"
+        }
+      },
+      "widgets_values": [
+        10
+      ]
+    },
+    {
+      "id": 2530,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": [
+        -2582.2942923340433,
+        -2461.8124466971562
+      ],
+      "size": [
+        392.2209952092884,
+        82
+      ],
+      "flags": {},
+      "order": 79,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "OPTION",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "max one",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.3"
+        }
+      }
+    },
+    {
+      "id": 1329,
+      "type": "PreviewAudio",
+      "pos": [
+        3639.1500583284587,
+        -107.6374641253697
+      ],
+      "size": [
+        270,
+        88
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 101,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 5181
+        }
+      ],
+      "outputs": [],
+      "title": "Preview Audio for group 1",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.56",
+        "Node name for S&R": "PreviewAudio",
+        "ue_properties": {
+          "version": "7.3",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653",
+      "shape": 1
+    },
+    {
+      "id": 1221,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        3996.075472376313,
+        -547.7135523183293
+      ],
+      "size": [
+        266.0651550292969,
+        512.0434366861979
+      ],
+      "flags": {},
+      "order": 161,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1941
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 5183
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "widget": {
+            "name": "frame_rate"
+          },
+          "link": 5211
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "1.6.1",
+        "Node name for S&R": "VHS_VideoCombine",
+        "ue_properties": {
+          "version": "7.3",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "AnimateDiff_00092-audio.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 25,
+            "workflow": "AnimateDiff_00092.png",
+            "fullpath": "/basedir/output/AnimateDiff_00092-audio.mp4"
+          }
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653",
+      "shape": 1
+    },
+    {
+      "id": 2450,
+      "type": "OllamaConnectivityV2",
+      "pos": [
+        1616.936266415594,
+        -801.1398295033036
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 80,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "connection",
+          "type": "OLLAMA_CONNECTIVITY",
+          "links": [
+            5059
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.1.0",
+        "Node name for S&R": "OllamaConnectivityV2",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.3"
+        }
+      },
+      "widgets_values": [
+        "http://host.docker.internal:11434",
+        "gpt-4o-mini",
+        5,
+        "minutes",
+        null
+      ]
+    },
+    {
+      "id": 2561,
+      "type": "MarkdownNote",
+      "pos": [
+        -3437.053838148597,
+        -2732.647142299427
+      ],
+      "size": [
+        1339.8161907038004,
+        88
+      ],
+      "flags": {},
+      "order": 81,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "version": "7.3",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "# WORKFLOW CONTROL\n\n---\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1230,
+      "type": "MarkdownNote",
+      "pos": [
+        -3114.6469165171434,
+        -2919.5980943843533
+      ],
+      "size": [
+        652.2125854492188,
+        146.52639770507812
+      ],
+      "flags": {},
+      "order": 82,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "version": "7.3",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "# 🎬 VRGDG HUMO Music Video Workflow\n\nThis workflow creates **music videos (or other videos)** in **one shot** using the **HUMO model**.  \n\n---\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 2543,
+      "type": "Any Switch (rgthree)",
+      "pos": [
+        3183.1753555700266,
+        -1116.7728980685765
+      ],
+      "size": [
+        250.08046875000002,
+        106
+      ],
+      "flags": {},
+      "order": 156,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "any_01",
+          "type": "STRING",
+          "link": 5269
+        },
+        {
+          "dir": 3,
+          "name": "any_02",
+          "type": "STRING",
+          "link": 5265
+        },
+        {
+          "dir": 3,
+          "name": "any_03",
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_04",
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_05",
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": "STRING",
+          "name": "*",
+          "shape": 3,
+          "type": "STRING",
+          "links": [
+            5266,
+            5267
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2510052058",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.3"
+        }
+      },
+      "widgets_values": []
     }
   ],
   "links": [
@@ -8175,14 +8141,6 @@
       2498,
       0,
       "*"
-    ],
-    [
-      5192,
-      1202,
-      0,
-      2501,
-      0,
-      "IMAGE"
     ],
     [
       5193,
@@ -9501,10 +9459,10 @@
     "ue_links": [],
     "links_added_by_ue": [],
     "ds": {
-      "scale": 1.0610764609500012,
+      "scale": 0.2794145953766202,
       "offset": [
-        2289.2494545630943,
-        1233.8958015572348
+        3881.960974251946,
+        3498.654141243143
       ]
     }
   },
