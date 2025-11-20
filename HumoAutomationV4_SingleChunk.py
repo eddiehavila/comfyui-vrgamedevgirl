@@ -169,10 +169,13 @@ class VRGDG_FullSongAnalyzerV4:
         fps = 25
         frames_per_chunk = 97  # HuMo optimal (4n+1 format)
         seconds_per_chunk = frames_per_chunk / fps  # 3.88 seconds
+        samples_per_chunk_calc = int(frames_per_chunk * sample_rate / fps + 0.5)
 
         total_chunks = math.ceil(audio_duration / seconds_per_chunk)
 
         print(f"[VRGDG V4] Chunks needed: {total_chunks} (@ {seconds_per_chunk:.2f}s each)")
+        print(f"[VRGDG V4] Samples per chunk: {samples_per_chunk_calc} (@ {sample_rate} Hz)")
+        print(f"[VRGDG V4] Total audio samples: {num_samples} ({audio_duration:.2f}s)")
 
         # Transcribe full audio if enabled
         full_lyrics = ""
@@ -201,7 +204,8 @@ class VRGDG_FullSongAnalyzerV4:
                 print(f"[VRGDG V4] ✅ Full transcription complete ({len(full_lyrics)} chars)")
 
                 # Also transcribe each chunk individually for per-chunk metadata
-                samples_per_chunk = int(frames_per_chunk * sample_rate / fps)
+                # Use proper rounding (not truncation) to avoid sample loss
+                samples_per_chunk = int(frames_per_chunk * sample_rate / fps + 0.5)
 
                 for idx in range(total_chunks):
                     start_sample = idx * samples_per_chunk
@@ -283,7 +287,7 @@ class VRGDG_FullSongAnalyzerV4:
             "num_samples": num_samples,
             "duration": audio_duration,
             "frames_per_chunk": frames_per_chunk,
-            "samples_per_chunk": int(frames_per_chunk * sample_rate / fps),
+            "samples_per_chunk": int(frames_per_chunk * sample_rate / fps + 0.5),  # Proper rounding
         }
 
         print(f"[VRGDG V4] ✅ Analysis complete! Ready for chunked processing.")
@@ -536,10 +540,10 @@ class VRGDG_LoadSingleAudioChunk:
         frames_per_chunk = audio_meta.get("frames_per_chunk", 97)
 
         if samples_per_chunk == 0:
-            # Fallback calculation
+            # Fallback calculation with proper rounding
             fps = 25
             frames_per_chunk = 97
-            samples_per_chunk = int(frames_per_chunk * sample_rate / fps)
+            samples_per_chunk = int(frames_per_chunk * sample_rate / fps + 0.5)
 
         # Calculate sample range for this chunk
         start_sample = index * samples_per_chunk
@@ -584,10 +588,12 @@ class VRGDG_LoadSingleAudioChunk:
             "actual_samples": actual_samples,
             "padded": actual_samples < samples_per_chunk,
             "duration": samples_per_chunk / sample_rate,
+            "samples_per_chunk": samples_per_chunk,
         }
 
         print(f"[VRGDG V4] 🎵 Loaded chunk #{index}: {actual_samples}/{samples_per_chunk} samples "
               f"({'padded' if chunk_info['padded'] else 'full'})")
+        print(f"[VRGDG V4]    Sample range: {start_sample} - {end_sample} (duration: {chunk_info['duration']:.3f}s)")
 
         return (chunk_audio, chunk_info)
 
