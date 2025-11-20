@@ -769,6 +769,234 @@ class VRGDG_AutoQueueController:
 
 
 # =============================================================================
+# Node 7: VRGDG_CombineAllChunks
+# =============================================================================
+
+class VRGDG_CombineAllChunks:
+    """
+    Combines all video chunks into a single final video with original audio.
+
+    Finds all video_chunk_*.mp4 files, concatenates them, and adds the original audio.
+    """
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "trigger": (any_typ,),
+                "audio": ("AUDIO",),
+                "output_folder": ("STRING", {
+                    "default": "video_output",
+                    "multiline": False,
+                }),
+                "total_chunks": ("INT", {
+                    "default": 0,
+                    "min": 0,
+                    "max": 9999,
+                }),
+                "min_chunks_required": ("INT", {
+                    "default": 1,
+                    "min": 1,
+                    "max": 9999,
+                    "tooltip": "Minimum chunks required before combining (prevents premature combining)",
+                }),
+            }
+        }
+
+    RETURN_TYPES = ("STRING", any_typ)
+    RETURN_NAMES = ("final_video_path", "signal")
+    FUNCTION = "combine_chunks"
+    CATEGORY = "VRGDG/V4 Single Chunk"
+    OUTPUT_NODE = True
+
+    def combine_chunks(self, trigger, audio, output_folder, total_chunks, min_chunks_required):
+        """
+        Combine all video chunks into final video.
+        """
+
+        import subprocess
+        import folder_paths
+
+        # Resolve output folder path
+        if not os.path.isabs(output_folder):
+            base_output = folder_paths.get_output_directory()
+            output_folder = os.path.join(base_output, output_folder)
+
+        print(f"[VRGDG V4] 🎬 Combining chunks from: {output_folder}")
+
+        # Find all video chunk files (not marker files)
+        try:
+            all_files = os.listdir(output_folder)
+            video_chunks = sorted([
+                f for f in all_files
+                if f.startswith("video_chunk_") and f.endswith(".mp4") and "-audio" not in f
+            ])
+        except Exception as e:
+            error_msg = f"❌ Failed to list files in {output_folder}: {e}"
+            print(f"[VRGDG V4] {error_msg}")
+            return (error_msg, False)
+
+        chunk_count = len(video_chunks)
+
+        print(f"[VRGDG V4] Found {chunk_count} video chunks")
+
+        # Check if we have enough chunks
+        if chunk_count < min_chunks_required:
+            msg = f"⏸️ Only {chunk_count}/{min_chunks_required} chunks available. Waiting for more..."
+            print(f"[VRGDG V4] {msg}")
+            return (msg, False)
+
+        # Warn if chunk count doesn't match expected
+        if total_chunks > 0 and chunk_count < total_chunks:
+            print(f"[VRGDG V4] ⚠️ Warning: Found {chunk_count} chunks but expected {total_chunks}")
+            print(f"[VRGDG V4] Proceeding with {chunk_count} chunks...")
+
+        # Find ffmpeg
+        ffmpeg_path = self._find_ffmpeg()
+        if not ffmpeg_path:
+            error_msg = "❌ FFmpeg not found. Cannot combine videos."
+            print(f"[VRGDG V4] {error_msg}")
+            return (error_msg, False)
+
+        # Create concat list file
+        concat_file = os.path.join(output_folder, "concat_list.txt")
+        try:
+            with open(concat_file, 'w') as f:
+                for chunk in video_chunks:
+                    chunk_path = os.path.join(output_folder, chunk)
+                    f.write(f"file '{chunk_path}'\n")
+            print(f"[VRGDG V4] Created concat list: {concat_file}")
+        except Exception as e:
+            error_msg = f"❌ Failed to create concat list: {e}"
+            print(f"[VRGDG V4] {error_msg}")
+            return (error_msg, False)
+
+        # Concatenate videos (without audio)
+        temp_video = os.path.join(output_folder, "_temp_video_no_audio.mp4")
+
+        print(f"[VRGDG V4] 🔗 Concatenating {chunk_count} video chunks...")
+
+        concat_cmd = [
+            ffmpeg_path, "-y",
+            "-f", "concat",
+            "-safe", "0",
+            "-i", concat_file,
+            "-an",  # Remove audio
+            "-c:v", "copy",  # Copy video codec (fast)
+            temp_video
+        ]
+
+        try:
+            result = subprocess.run(concat_cmd, capture_output=True, text=True, check=True)
+            print(f"[VRGDG V4] ✅ Videos concatenated successfully")
+        except subprocess.CalledProcessError as e:
+            error_msg = f"❌ FFmpeg concatenation failed: {e.stderr}"
+            print(f"[VRGDG V4] {error_msg}")
+            if os.path.exists(concat_file):
+                os.remove(concat_file)
+            return (error_msg, False)
+
+        # Save original audio
+        temp_audio = os.path.join(output_folder, "_temp_original_audio.wav")
+
+        print(f"[VRGDG V4] 💾 Saving original audio...")
+
+        try:
+            waveform = audio["waveform"]
+            sample_rate = audio["sample_rate"]
+            torchaudio.save(temp_audio, waveform.squeeze(0).cpu(), sample_rate)
+        except Exception as e:
+            error_msg = f"❌ Failed to save audio: {e}"
+            print(f"[VRGDG V4] {error_msg}")
+            if os.path.exists(temp_video):
+                os.remove(temp_video)
+            if os.path.exists(concat_file):
+                os.remove(concat_file)
+            return (error_msg, False)
+
+        # Combine video + audio
+        final_output = os.path.join(output_folder, "FINAL_VIDEO.mp4")
+
+        if os.path.exists(final_output):
+            print(f"[VRGDG V4] ⚠️ Removing existing FINAL_VIDEO.mp4")
+            os.remove(final_output)
+
+        print(f"[VRGDG V4] 🎵 Adding original audio to video...")
+
+        combine_cmd = [
+            ffmpeg_path, "-y",
+            "-i", temp_video,
+            "-i", temp_audio,
+            "-c:v", "copy",  # Copy video codec (fast)
+            "-c:a", "aac",   # Encode audio as AAC
+            "-b:a", "192k",  # Audio bitrate
+            "-shortest",     # Match shortest stream (video or audio)
+            final_output
+        ]
+
+        try:
+            result = subprocess.run(combine_cmd, capture_output=True, text=True, check=True)
+            print(f"[VRGDG V4] ✅ Final video created successfully!")
+
+            # Cleanup temp files
+            os.remove(temp_video)
+            os.remove(temp_audio)
+            os.remove(concat_file)
+
+            # Send success notification
+            try:
+                message = (
+                    f"🎉 Final video created!\n\n"
+                    f"📁 Location:\n{final_output}\n\n"
+                    f"✅ {chunk_count} chunks combined\n"
+                    f"✅ Original audio added\n"
+                    f"✅ Total duration: {audio['waveform'].shape[-1] / audio['sample_rate']:.2f}s"
+                )
+                PromptServer.instance.send_sync("vrgdg_instructions_popup", {
+                    "message": message,
+                    "type": "green",
+                    "title": "✅ VIDEO COMPLETE!"
+                })
+            except:
+                pass  # Notification is optional
+
+            print(f"[VRGDG V4] 📁 Final video: {final_output}")
+            return (final_output, True)
+
+        except subprocess.CalledProcessError as e:
+            error_msg = f"❌ Failed to add audio: {e.stderr}"
+            print(f"[VRGDG V4] {error_msg}")
+
+            # Cleanup
+            if os.path.exists(temp_video):
+                os.remove(temp_video)
+            if os.path.exists(temp_audio):
+                os.remove(temp_audio)
+            if os.path.exists(concat_file):
+                os.remove(concat_file)
+
+            return (error_msg, False)
+
+    def _find_ffmpeg(self):
+        """Find ffmpeg executable."""
+        import shutil
+
+        # Try common locations
+        ffmpeg_path = shutil.which("ffmpeg")
+        if ffmpeg_path:
+            return ffmpeg_path
+
+        # Try imageio's ffmpeg
+        try:
+            import imageio_ffmpeg
+            return imageio_ffmpeg.get_ffmpeg_exe()
+        except:
+            pass
+
+        return None
+
+
+# =============================================================================
 # Node Registration
 # =============================================================================
 
@@ -779,6 +1007,7 @@ NODE_CLASS_MAPPINGS = {
     "VRGDG_LoadSingleAudioChunk": VRGDG_LoadSingleAudioChunk,
     "VRGDG_SaveVideoChunkWithIndex": VRGDG_SaveVideoChunkWithIndex,
     "VRGDG_AutoQueueController": VRGDG_AutoQueueController,
+    "VRGDG_CombineAllChunks": VRGDG_CombineAllChunks,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -788,4 +1017,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "VRGDG_LoadSingleAudioChunk": "🎵 VRGDG Load Single Audio Chunk",
     "VRGDG_SaveVideoChunkWithIndex": "💾 VRGDG Save Video Chunk",
     "VRGDG_AutoQueueController": "🔄 VRGDG Auto Queue Controller",
+    "VRGDG_CombineAllChunks": "🎬 VRGDG Combine All Chunks",
 }
